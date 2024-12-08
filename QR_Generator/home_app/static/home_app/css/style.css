@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+p{
+    color: green
+}
+main{
+    padding-top: 140px;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+}
+#home{
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+    font-family:"Inter", sans-serif;
+}
+.header-title{
+    width: 100%;
+    height: 121px;
+    text-align: center;
+    font-size: 44px;
+    font-weight: 700;
+    font-family: "Instrument Sans", sans-serif;
+    color: rgb(204, 247, 255);
+    
+}
+.background{
+    top: 80px;
+    left: 0px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+}
+
+.cta-input{
+    width: 693px;
+    height: 82px;
+    background-color: rgb(234, 252, 255);
+    border: 3px black solid;
+    border-radius: 30px;
+    font-size: 40px;
+    font-family: "Inter", sans-serif;
+    padding-left: 17px;
+}
+.cta-input::placeholder{
+    font-style: italic;
+    color: rgb(128,128,128);
+}
+.input-description{
+    color: rgba(181, 243, 255);
+    font-size: 24px;
+    font-family: "Inter", sans-serif;
+    opacity: 70%;
+}

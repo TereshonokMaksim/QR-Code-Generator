@@ -1,0 +1,16 @@
+{% extends "base.html" %} 
+{% load static %}
+
+
+{% block title %}
+    Home App
+{% endblock %}
+
+{% block links %}
+    <link rel = "stylesheet" href = "{% static 'home_app/css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+    <img src="{% static 'home_app/img/background.png' %}" alt="" class="background">
+    <h1 class = "header-title">Test logined Page</h1>
+{% endblock %}

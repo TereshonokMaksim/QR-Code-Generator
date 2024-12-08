@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+button{
+    font-size: 47.1px;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    color: white;
+    padding: 13.13px 17.51px;
+    border-radius: 8.7px;
+    background-color: #11859F;
+    transition: 0.1s;
+    border-width: 0px;
+}
+button:hover{
+    transition: 0.1s;
+    background-color: #50A8BB;
+}
+button:focus{
+    transition: 0.1s;
+    background-color: #005062;
+}
+
+input{
+    width: 800px;
+    height: 80px;
+    display: flex;
+    border: 3px solid #003B48;
+    background-color: #CFCFCF99;
+    border-radius: 16px;
+    font-size: 38px;
+    font-family: "Inter", sans-serif;
+    padding: 20px;
+    box-sizing:border-box;
+    transition: 0.1s;
+}
+input:hover{
+    background-color: #FFFFFF99;
+    transition: 0.1s;
+}
+input:focus{
+    background-color: #73737399;
+    transition: 0.1s;
+}
+input::placeholder{
+    font-size: 33.3px;
+    font-family: "Inter", sans-serif;
+    color: #444444;
+    font-style: italic;
+}
+
+.header-title{
+    font-size: 44px;
+    font-family: "Instrument Sans", sans-serif;
+    font-weight: 700;
+    color: black;
+}

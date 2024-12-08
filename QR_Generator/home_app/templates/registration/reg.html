@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Registration
+{% endblock %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'registration_app/css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+    <img src="{% static 'registration_app/img/background.png' %}" alt="" class="background">
+    <h1 class = "header-title">Registration</h1>
+    <form method = "post" class = "reg-form">
+        {% csrf_token %}
+        <div class = "input-block">
+            <label for="username" class = "reg-form-name">Create username</label>
+            <input type = "text" placeholder = "Your name..." name = "username" required class = "reg-input">
+        </div>
+        <div class = "input-block">
+            <label for = "email" class = "reg-form-name">Write down your E-mail</label>
+            <input type = "email" placeholder = "Your email..." name = "email" required class = "reg-input">
+        </div>
+        <div class = "input-block">
+            <label for = "password" class = "reg-form-name">Create password</label>
+            <input type = "password" placeholder = "Your password" name = "password" required class = "reg-input">
+        </div>
+        {% if message == "email" %}
+            <p class = "reg-warning-text">This E-mail is already used, please, choose another E-mail.</p>
+        {% elif message == "name" %}
+            <p class = "reg-warning-text">This username is already used, please, choose another username.</p>
+        {% else %}
+            <p class = "reg-goto-text">
+                Already have an account? 
+                <a href="{% url 'login' %}" class = "reg-goto-link">Login</a>
+            </p>
+        {% endif %}
+        <button type = "submit" class = "submit-reg-button">Register</button>
+    </form>
+    {% if message == "success" %}
+        <div class = "bg-blur">
+            <div class = "successful-form">
+                <img src="{% static 'registration_app/img/awaiting.png' %}" alt="Awaiting...">
+                <p class = "successful-text">Confirm your registration using the specified email address</p>
+                <button class = "goto-button">
+                    <a href = "{% url 'login' %}" class = "button-link">Go to Login</a>
+                </button>
+            </form>
+        </div>
+    {% endif %}
+{% endblock %}

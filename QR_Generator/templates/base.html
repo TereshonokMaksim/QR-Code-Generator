@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'css/base_part_styles.css' %}">
+        <script src = "{% static 'js/script.js' %}"></script>
+        {% block links %}{% endblock %}
+    </head>
+    <body>
+        
+        <header>
+            <div class = "main-links not-logined-blocks">
+                <a href="{% url 'home' %}" class = "header-link" id = 'home'>Home</a>
+                <a href="" class = "header-link" id = 'generator'>QR-Code Generator</a>
+                <a href="" class = "header-link" id = 'contacts'>Contacts</a>
+            </div>
+            <div class = "login-links not-logined-blocks">
+                <a href="{% url 'login' %}" class = "header-link" id = 'login'>Login</a>
+                <a href="{% url 'registration' %}" class = "header-link header-button" id = 'register'>Register</a>
+            </div>
+            <div class = "main-links logined-blocks">
+                <a href="{% url 'home' %}" class = "header-link" id = 'home'>Home</a>
+                <a href="" class = "header-link" id = 'generator'>QR-Code Generator</a>
+                <a href="" class = "header-link" id = 'my-codes'>My QR-Cods</a>
+                <a href="" class = "header-link" id = 'contacts'>Contacts </a>
+            </div>
+            <div class = "login-links logined-blocks">
+                <span class = "username">Welcome, user!</span>
+                <a href="{% url 'logout' %}" class = "header-link header-button">Logout</a>
+            </div>
+        </header>
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+    </body>
+</html>

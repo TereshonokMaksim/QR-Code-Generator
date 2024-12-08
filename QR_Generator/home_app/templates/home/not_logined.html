@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Home Page
+{% endblock %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'home_app/css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+    <img src="{% static 'home_app/img/background.png' %}" alt="" class="background">
+    <h1 class = "header-title">Your perfect QR code in just a few clicks – create it now <br>and amaze the world!</h1>
+    <form method = "post" class = 'post'>
+        {% csrf_token %}
+        <input type="text" class = "cta-input" placeholder = "Enter your text" name = "link" required>
+        <p class = "input-description">Note: You can generate only 1 QR-code without subscription.</p>
+    </form>
+{% endblock %}
