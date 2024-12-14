@@ -23,9 +23,9 @@
                 <a href="{% url 'registration' %}" class = "header-link header-button" id = 'register'>Register</a>
             </div>
             <div class = "main-links logined-blocks">
-                <a href="{% url 'home' %}" class = "header-link" id = 'home'>Home</a>
+                <a href="{% url 'home' %}" class = "header-link" id = 'home-logined'>Home</a>
                 <a href="" class = "header-link" id = 'generator'>QR-Code Generator</a>
-                <a href="" class = "header-link" id = 'my-codes'>My QR-Cods</a>
+                <a href="{% url 'my_qrcodes' %}" class = "header-link" id = 'my-codes'>My QR-Codes</a>
                 <a href="" class = "header-link" id = 'contacts'>Contacts </a>
             </div>
             <div class = "login-links logined-blocks">

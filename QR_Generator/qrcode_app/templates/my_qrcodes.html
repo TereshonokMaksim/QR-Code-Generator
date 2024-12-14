@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    My QR-Cods Page
+{% endblock %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'css/my_qrcodes.css' %}">
+    <script defer src="{% static 'js/my_qrcodes.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    
+        <img src="{% static 'img/background_myqrcodes.png' %}" alt="" class="background-myqrcodes">
+        <h1 class="myqrcodes-title">Your QR Codes</h1>
+        <div class="myqrcodes-cards">
+            {% for qrcode in all_qrcodes %}
+                <div class="myqrcode-card" id="card-{{ qrcode.id }}">
+                    <input type="hidden" value="{{ qrcode.name }};{{ qrcode.size }};#{{ qrcode.color }};{{ qrcode.form }};{{qrcode.link}}" class="qrcode-data">
+                    <img src="{% static 'img/qrcode.png' %}" alt="" class="qrcode">
+                    <div class="qrcode-info">
+                        {{ qrcode.name }}
+                    </div>
+                        <button class="qrcode-download" id="{{ qrcode.id }}">
+                            Download
+                        </button>
+                </div>
+            {% endfor %}
+        </div>
+    <div class="blur">
+        <div class="modal-window">
+            
+                <img src="{% static 'img/qrcode.png' %}" alt="" class="qrcode-modal">
+                <div class="modal-info">
+                    <p class="qrcode-name"></p>
+                    <p class="qrcode-size"></p>
+                    <div class="qrcode-color">Color:<div class="color"></div></div>
+                    <p class="qrcode-form"></p>
+                    <p class="qrcode-link"></p>
+                    <button class="qrcode-download-button">Download</button>
+                </div>
+                <div class="end-decoration">
+                    <img src="{% static 'img/cross.png' %}" alt="" class="cross-image">
+                </div>
+        </div>
+    </div>
+
+{% endblock %}

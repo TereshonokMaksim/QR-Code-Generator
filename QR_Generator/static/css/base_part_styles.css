@@ -15,7 +15,7 @@ button:hover{
     transition: 0.1s;
     background-color: #50A8BB;
 }
-button:focus{
+button:active{
     transition: 0.1s;
     background-color: #005062;
 }
