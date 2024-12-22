@@ -15,8 +15,8 @@
         <header>
             <div class = "main-links not-logined-blocks">
                 <a href="{% url 'home' %}" class = "header-link" id = 'home'>Home</a>
-                <a href="" class = "header-link" id = 'generator'>QR-Code Generator</a>
-                <a href="" class = "header-link" id = 'contacts'>Contacts</a>
+                <a href="{% url 'generator_qr' %}" class = "header-link" id = 'generator'>QR-Code Generator</a>
+                <a href="{% url 'contacts' %}" class = "header-link" id = 'contacts'>Contacts</a>
             </div>
             <div class = "login-links not-logined-blocks">
                 <a href="{% url 'login' %}" class = "header-link" id = 'login'>Login</a>
@@ -24,9 +24,9 @@
             </div>
             <div class = "main-links logined-blocks">
                 <a href="{% url 'home' %}" class = "header-link" id = 'home'>Home</a>
-                <a href="" class = "header-link" id = 'generator'>QR-Code Generator</a>
+                <a href="{% url 'generator_qr' %}" class = "header-link" id = 'generator'>QR-Code Generator</a>
                 <a href="" class = "header-link" id = 'my-codes'>My QR-Cods</a>
-                <a href="" class = "header-link" id = 'contacts'>Contacts </a>
+                <a href="{% url 'contacts' %}" class = "header-link" id = 'contacts'>Contacts </a>
             </div>
             <div class = "login-links logined-blocks">
                 <span class = "username">Welcome, user!</span>

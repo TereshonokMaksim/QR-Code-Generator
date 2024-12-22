@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Contacts
+{% endblock %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'generator_qr/css/style.css' %}">
+    <script defer src = "{% static 'generator_qr/js/generator.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <img src="{% static 'generator_qr/img/background_gen_qr.png' %}" alt="" class = "background">
+    <p class = "header-title">Create your own QR-Code!</p>       
+    <img src = "{% static 'generator_qr/img/qr-fon.png' %}" alt="" class = "qr-size">
+    <div class = "settings-qrcode">
+        <div class = "input">
+            <p class = "p-style">Name:</p>
+            <input type="text" placeholder = "Your QR-Code name..." class = "input-size">
+        </div>
+
+        <div class = "input">
+            <p class = "p-style">Size:</p>
+            <input type="text" placeholder = "Your QR-Code size..." class = "input-size">
+        </div>
+
+        <div class = "input">
+            <p class = "p-style-color">Color:</p>
+            <div class="custom-color-picker" id="color-preview"></div>
+            <input type="color"  class = "input-color" hidden>
+        </div>
+
+        <div class = "input input-file1">
+            <button class = "button-choose" onclick = "document.querySelector('.input-file').click()">Choose file</button>
+            <p class = "p-style" id = "text-file">File is not selected</p>
+            <input type="file" accept="image" class = "input-file">
+        </div>
+
+        <div class = "input">
+            <p class = "p-style">Form:</p>
+            <input type="text" placeholder = "Your QR-Code form..." class = "input-size">
+        </div>
+
+        <div class = "input">
+            <p class = "p-style">Link:</p>
+            <input type="text" placeholder = "Your QR-Code link..." class = "input-size">
+        </div>
+
+        <div class = "input">
+            <button>Generate</button>
+        </div>
+    </div>
+{% endblock %}
