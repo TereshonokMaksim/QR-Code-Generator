@@ -1,4 +1,3 @@
-
 const openModalButton = document.querySelectorAll('.qrcode-download')
 const blurElement = document.querySelector('.blur')
 const cross = document.querySelector('.cross-image')

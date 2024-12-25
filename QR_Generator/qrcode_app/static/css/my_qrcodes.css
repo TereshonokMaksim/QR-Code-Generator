@@ -169,3 +169,7 @@ main{
     flex-direction: row;
     gap: 20px;
 }
+a[download]{
+    text-decoration: none;
+    color: white;
+}

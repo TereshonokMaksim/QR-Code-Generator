@@ -36,7 +36,9 @@
                 <a href="{% url 'login' %}" class = "reg-goto-link">Login</a>
             </p>
         {% endif %}
-        <button type = "submit" class = "submit-reg-button">Register</button>
+        <form method="post">
+            <button type = "submit" class = "submit-reg-button">Register</button>
+        </form>
     </form>
     {% if message == "success" %}
         <div class = "bg-blur">

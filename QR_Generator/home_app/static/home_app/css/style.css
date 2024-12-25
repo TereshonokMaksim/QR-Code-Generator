@@ -128,3 +128,12 @@ main{
     background-color: rgb(17,133,159);
     color: white;
 }
+a{
+    color: white;
+    text-decoration: none;
+}
+.fast-qrcode-input{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
