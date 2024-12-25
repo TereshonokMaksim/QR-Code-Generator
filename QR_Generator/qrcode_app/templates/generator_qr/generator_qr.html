@@ -14,7 +14,8 @@
     <img src="{% static 'generator_qr/img/background_gen_qr.png' %}" alt="" class = "background">
     <p class = "header-title">Create your own QR-Code!</p>       
     <img src = "{% static 'generator_qr/img/qr-fon.png' %}" alt="" class = "qr-size">
-    <div class = "settings-qrcode">
+    <form action="" class = "settings-qrcode">
+        {% csrf_token %}
         <div class = "input">
             <p class = "p-style">Name:</p>
             <input type="text" placeholder = "Your QR-Code name..." class = "input-size">
@@ -47,8 +48,6 @@
             <input type="text" placeholder = "Your QR-Code link..." class = "input-size">
         </div>
 
-        <div class = "input">
-            <button>Generate</button>
-        </div>
-    </div>
+        <button class = "input">Generate</button>
+    </form>
 {% endblock %}
