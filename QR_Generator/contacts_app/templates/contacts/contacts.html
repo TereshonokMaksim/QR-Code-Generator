@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Contacts
+{% endblock %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'contacts/css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+
+    <img src="{% static 'contacts/img/background_contacts.png' %}" alt="" class = "background">
+    <div class = "contacts-main-box">
+        <p class = "text-contact">Our Contacts</p>
+        <a class = "contacts" href = "">
+            <img src="{% static 'contacts/img/Email.png' %}" alt="https://mail.google.com/mail/u/0/?fs=1&to=m.tereshonok2010@gmail.com&su=Help&tf=cm" id = "c1">
+            <i class = "text-contact-social">Get help in EMail</i>
+        </a>
+        <a class = "contacts" href = "https://vikna.if.ua/assets/gallery/2022/11/08/138254/1667917927_107ccfb7c523b3a9eeea.jpg">
+            <img src="{% static 'contacts/img/X.png' %}" alt="" id = "c2">
+            <i class = "text-contact-social">Follow us on X</i>
+        </a>
+        <a class = "contacts" href = "">
+            <img src="{% static 'contacts/img/Instagram.png' %}" alt="https://www.instagram.com/world.it.academy/" id = "c3">
+            <i class = "text-contact-social">Follow us on Instagram</i>
+        </a>
+        <a class = "contacts" href = "">
+            <img src="{% static 'contacts/img/Telegram.png' %}" alt="https://t.me/c/1945003614/589" id = "c45">
+            <i class = "text-contact-social">Get help in Telegram</i>
+        </a>
+        <a class = "contacts" href = "https://vikna.if.ua/assets/gallery/2022/11/08/138254/1667917927_107ccfb7c523b3a9eeea.jpg">
+            <img src="{% static 'contacts/img/Phone.png' %}" alt="" id = "c45">
+            <i class = "text-contact-social">Phone Us: +88005553535</i>
+        </a>
+    </div>
+        <div class = "size-location-map">
+            <i class = "text-map">We on the map!</i>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d364.8635794245842!2d35.06953639713433!3d48.458313209708884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbe2d20f19e74d%3A0x5cc2566862fe071d!2z0YPQuy4g0JjQstCw0L3QsCDQkNC60LjQvdGE0LjQtdCy0LAsIDE4LCDQlNC90LXQv9GALCDQlNC90LXQv9GA0L7Qv9C10YLRgNC-0LLRgdC60LDRjyDQvtCx0LvQsNGB0YLRjCwg0KPQutGA0LDQuNC90LAsIDQ5MDAw!5e0!3m2!1sru!2spl!4v1734724241083!5m2!1sru!2spl" width="751" height="614" style="border: 3px solid gray; border-radius: 20px;;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    
+{% endblock %}
+
