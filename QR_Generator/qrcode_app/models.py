@@ -8,3 +8,4 @@ class QRCode(models.Model):
     color = models.CharField(max_length = 8)
     form = models.CharField(max_length = 255)
     link = models.CharField(max_length = 255)
+    path_qrcode = models.ImageField(upload_to = "media/", default = "1")

@@ -4,4 +4,4 @@ from .models import QRCode
 
 def view_my_qrcodes(request):
     all_qrcodes = QRCode.objects.all()
-    return render(request, "my_qrcodes.html", context = {"all_qrcodes": all_qrcodes} )
+    return render(request, "my_qrcodes.html", context = {"all_qrcodes": all_qrcodes})

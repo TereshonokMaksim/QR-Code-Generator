@@ -11,14 +11,14 @@
 {% endblock %}
 
 {% block content %}
-    
+     
         <img src="{% static 'img/background_myqrcodes.png' %}" alt="" class="background-myqrcodes">
         <h1 class="myqrcodes-title">Your QR Codes</h1>
         <div class="myqrcodes-cards">
             {% for qrcode in all_qrcodes %}
                 <div class="myqrcode-card" id="card-{{ qrcode.id }}">
-                    <input type="hidden" value="{{ qrcode.name }};{{ qrcode.size }};#{{ qrcode.color }};{{ qrcode.form }};{{qrcode.link}}" class="qrcode-data">
-                    <img src="{% static 'img/qrcode.png' %}" alt="" class="qrcode">
+                    <input type="hidden" value="{{ qrcode.name }};{{ qrcode.size }};#{{ qrcode.color }};{{ qrcode.form }};{{ qrcode.link }};{{ qrcode.path_qrcode.url }}" class="qrcode-data">
+                    <img src="{{ qrcode.path_qrcode.url }}" alt="" class="qrcode">
                     <div class="qrcode-info">
                         {{ qrcode.name }}
                     </div>
@@ -31,19 +31,20 @@
     <div class="blur">
         <div class="modal-window">
             
-                <img src="{% static 'img/qrcode.png' %}" alt="" class="qrcode-modal" id="qrcode-image">
+                <img src="" alt="" class="qrcode-modal" id="qrcode-image">
                 <div class="modal-info">
                     <p class="qrcode-name"></p>
                     <p class="qrcode-size"></p>
                     <div class="qrcode-color">Color:<div class="color"></div></div>
                     <p class="qrcode-form"></p>
                     <p class="qrcode-link"></p>
-                    <button class="qrcode-download-button" id="download-button"><a href="{% static 'img/qrcode.png' %}" download class="download-link">Download</a></button>
+                    <button class="qrcode-download-button" id="download-button"><a href="" download class="download-link">Download</a></button>
                 </div>
                 <div class="end-decoration">
                     <img src="{% static 'img/cross.png' %}" alt="" class="cross-image">
                 </div>
         </div>
+
     </div>
 
 {% endblock %}
