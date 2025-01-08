@@ -2,10 +2,19 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.http import JsonResponse
+from django.core.mail import send_mail
+from django.http import HttpResponse
+from QR_Generator.settings import *
 
 # Create your views here.
 
 def render_home_page(request):
+    if request.method == "POST":
+        subject = 'Subscription'
+        message = 'Good afternoon!\nDid you want to subscribe? Confirm your bank card details\n\nAll the best!'
+        from_email =  EMAIL_HOST_USER # Отправитель
+        recipient_list = [request.user.email]  # Получатель
+        send_mail(subject, message, from_email, recipient_list)
     # Прописать тут условие залогинен/разлогинен
     if request.user.is_authenticated:
         return render(request = request, template_name = "home/logined.html")
@@ -24,6 +33,8 @@ def is_logined(request = None):
 
 def render_register_page(request):
     if request.method == "POST":
+       
+         
         name = str(request.POST.get("username"))
         email = request.POST.get("email")
         password = request.POST.get("password")
@@ -35,7 +46,14 @@ def render_register_page(request):
                 return render(request = request, template_name = "registration/reg.html", context = {"message": "email"})
         user = User.objects.create_user(username = name, email = email, password = password)
         print("created")
+        subject = 'Registration'
+        message = 'Good day!\n Your Google account was registered on the site http://127.0.0.1:8000/ .\nTo continue logging into your account, follow this link: http://127.0.0.1:8000/login \n P.S. If you were not the one logging in, just ignore this message.\n\nAll the best!'
+        from_email =  EMAIL_HOST_USER # Отправитель
+        recipient_list = [ request.POST.get("email")]  # Получатель
+        send_mail(subject, message, from_email, recipient_list)
+        
         return render(request = request, template_name = "registration/reg.html", context = {"message": "success"})
+    
     return render(request = request, template_name = "registration/reg.html")
 
 def render_login_page(request):

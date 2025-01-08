@@ -34,9 +34,11 @@ main{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 1018px;
-    height: 658.26px;
     gap: 34px;
+    background-color: #50A8BB;
+    padding: 20px 40px;
+    border: 6px solid #003B48;
+    border-radius: 20px;
 }
 
 .input{
@@ -116,7 +118,6 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 1018px;
     gap: 10px;
 }
 
@@ -143,3 +144,34 @@ main{
     border-width: 0px;
     margin-left: 20px;
 } */
+
+select{
+    width: 682px;
+    height: 68px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 20px;
+    border-radius: 8px;
+    border: 2px solid #003B48;
+    background-color: #57BACE;
+    font-family: "Inter", sans-serif;
+    font-size: 30px;
+    overflow: hidden;
+}
+
+option{
+    display: flex;
+    background-color: #11859F;
+    justify-content: start;
+    align-items: center;
+    font-family: "Inter", sans-serif;
+    font-size: 26px;
+    padding: 2px 0px 2px 10px;
+    border: 1px solid #003B48;
+}
+
+.bottom-option{
+    border-radius: 0px 0px 8px 8px;
+}

@@ -14,7 +14,10 @@
     <h1 class = "header-title">Your perfect QR code in just a few clicks – create it now <br>and amaze the world!</h1>
     <form method = "post" class = 'post'>
         {% csrf_token %}
-        <input type="text" class = "cta-input" placeholder = "Enter your text" name = "link" required>
+        <div class="fast-qrcode-input">
+            <input type="text" class = "cta-input" placeholder = "Enter your text" name = "link" required>
+            <button><a href="">-></a></button>
+        </div>
         <p class = "input-description">Note: You can generate only 1 QR-code without subscription.</p>
     </form>
     <div class="all-cards">
@@ -35,7 +38,7 @@
             <p class="subscription-description">• Up to 10 custom <br> QR-Codes in your <br> cloud library</p>
             <p class="subscription-cost">Cost: 2$ per month</p>
             <div class="subscription-price" id="second-card-price">
-                <p class="sub-price">Subscribe</p>
+                <a href="{% url 'registration' %}"><p class="sub-price">Subscribe</p></a>
             </div>
         </div>
         <div class="subscription-card">
@@ -46,7 +49,7 @@
             </p>
             <p class="subscription-cost">Cost: 10$ per month</p>
             <div class="subscription-price" id="third-card-price">
-                <p class="sub-price">Subscribe</p>
+                <a href="{% url 'registration' %}"><p class="sub-price">Subscribe</p></a>
             </div>
         </div>
     </div>

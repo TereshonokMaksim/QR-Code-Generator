@@ -23,7 +23,7 @@
 
         <div class = "input">
             <p class = "p-style">Size:</p>
-            <input type="text" placeholder = "Your QR-Code size..." class = "input-size">
+            <input type="number" placeholder = "Your QR-Code size..." class = "input-size" min = "1" max = "40">
         </div>
 
         <div class = "input">
@@ -40,7 +40,11 @@
 
         <div class = "input">
             <p class = "p-style">Form:</p>
-            <input type="text" placeholder = "Your QR-Code form..." class = "input-size">
+            <!-- <input type="text" placeholder = "Your QR-Code form..." class = "input-size"> -->
+            <select name = "form" id = "">
+                <option value = "square">Square</option>
+                <option value = "round" class = "bottom-option">Round</option>
+            </select>
         </div>
 
         <div class = "input">

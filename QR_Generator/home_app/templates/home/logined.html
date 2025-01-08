@@ -8,6 +8,7 @@
 
 {% block links %}
     <link rel="stylesheet" href="{% static 'home_app/css/logined.css' %}">
+    <script defer src="{% static 'home_app/js/logined.js' %}"></script>
 {% endblock %}
 
 {% block content %}
@@ -31,9 +32,12 @@
             </div>
             <p class="subscription-description">• Up to 10 custom <br> QR-Codes in your <br> cloud library</p>
             <p class="subscription-cost">Cost: 2$ per month</p>
-            <div class="subscription-price" id="second-card-price">
-                <p class="sub-price">Subscribe</p>
-            </div>
+            <form method="post">
+                {% csrf_token %}
+                <button class="subscription-price modal-class" id="second-card-price">
+                    <p class="sub-price-button">Subscribe</p>
+                </button>
+            </form>
         </div>
         <div class="subscription-card">
             <div class="subscription-type" id="third-card-type">
@@ -42,9 +46,23 @@
             <p class="subscription-description">• Up to 100 custom <br>QR-Codes in your <br>cloud library
             </p>
             <p class="subscription-cost">Cost: 10$ per month</p>
-            <div class="subscription-price" id="third-card-price">
-                <p class="sub-price">Subscribe</p>
-            </div>
+            <form method="post">
+                {% csrf_token %}
+                <button class="subscription-price modal-class" id="third-card-price">
+                    <p class="sub-price-button">Subscribe</p>
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="blur">
+        <div class="modal-window">
+                <div class="modal-info">
+                    <p class="modal-text">Confirm your bank card details <br> at the specified email address</p>
+                    <img src="{% static 'home_app/img/gmail-image.png' %}" alt="gmail-image" class="gmail-image">
+                </div>
+                <div class="end-decoration">
+                    <img src="{% static 'img/cross.png' %}" alt="" class="cross-image">
+                </div>
         </div>
     </div>
 {% endblock %}

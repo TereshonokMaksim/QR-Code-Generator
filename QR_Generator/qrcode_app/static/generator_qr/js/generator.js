@@ -12,3 +12,15 @@ document.querySelector('.input-file').onchange = function () {
   colorPreview.addEventListener("click", () => {
     colorInput.click();
   });
+
+let selectOpened = false
+document.querySelector("select").addEventListener("click", () => {
+    if (selectOpened) {
+      selectOpened = true
+      document.querySelector("select").style = "border-radius: 8px 8px 8px 8px;"
+    }
+    else {
+      selectOpened = false
+      document.querySelector("select").style = "border-radius: 8px 8px 0px 0px;"
+    }
+})
