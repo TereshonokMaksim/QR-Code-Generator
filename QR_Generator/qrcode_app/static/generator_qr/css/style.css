@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-
 main{
     display: flex;
     justify-content: center;
@@ -25,8 +23,8 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 600px;
-    height: 600px;
+    width: 700px;
+    height: 700px;
 }
 
 .settings-qrcode{
@@ -54,6 +52,7 @@ main{
 .header-title{
     width: 100%;
     text-align: center;
+    font-size: 60px;
 }
 
 .p-style{
@@ -174,4 +173,9 @@ option{
 
 .bottom-option{
     border-radius: 0px 0px 8px 8px;
+}
+
+
+.bord-qrcode{
+    width: 902.91px;
 }

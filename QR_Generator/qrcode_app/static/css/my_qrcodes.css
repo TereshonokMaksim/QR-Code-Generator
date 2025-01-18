@@ -1,9 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-
 .background-myqrcodes{
     top: 80px;
+    /* bottom: 0px; */
     left: 0px;
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100%;
     z-index: -10;
@@ -21,11 +20,13 @@ main{
     display: flex;
     /* justify-content: center; */
     align-items: center;
-    
+    width: calc(100% - 60px);
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 .myqrcodes-title{
-    font-size: 44px;
+    font-size: 64px;
     font-weight: 700;
     font-family: "Instrument Sans", serif;
     text-align: center;
@@ -37,8 +38,7 @@ main{
     flex-direction: row;
     padding: 10px;
     gap: 100px;
-    justify-content: center;
-    
+    justify-content: left;
 }
 .myqrcode-card{
     display: flex;
@@ -55,12 +55,13 @@ main{
     border-bottom-left-radius: 20px;
     align-items: center;
     overflow: hidden;
+}
 .qrcode{
     width: 250px;
     height: 250px;
     padding-bottom: 10px;
 }
-}
+
 .qrcode-info{
     display: flex;
     padding-top: 10px;
@@ -94,7 +95,10 @@ main{
 
 .modal-window{
     display: flex;
-    height: 370px;
+    width: fit-content;
+    max-width: 1000px;
+    height: 420px;
+    /* max-height: 600px; */
     flex-direction: row;
     gap:38.92px;
     padding-left: 31.13px;
@@ -102,9 +106,9 @@ main{
     border: 3.28px solid rgb(0,80,98);
     border-radius: 31.13px;
     position: fixed;
-
-   
-
+    align-items: center;
+    padding: 20px 0px 20px 20px;
+    overflow: hidden;
 }
 .qrcode-modal{
     width: 306px;
@@ -122,12 +126,14 @@ main{
     padding-top: 10px;
 }
 .end-decoration{
-    display: flex;
-    max-height: 370px;
+    /* display: flex; */
+    height: 440px;
+    min-height: 460px;
     gap: 7.78px;
     padding: 10px;
+    padding-top: 20px;
     background-color: rgb(17,133,159);
-    border-radius: 3.28px solid rgb(0,80,98);
+    border-radius: 3.28px;
     flex-direction: column;
     align-items: end;
     justify-content: flex-start;
@@ -140,6 +146,11 @@ main{
     width: 60px;
     height: 60px;
 }
+
+.cross-image:hover{
+    cursor: pointer;
+}
+
 .blur{
     display: none;
     top: 80px;
@@ -160,9 +171,10 @@ main{
 
 .color{
     width: 150px;
-    height: 100%;
+    height: 38px;
     border: 1px solid black;
     border-radius: 10px;
+    /* height: 100%; */
 }
 .qrcode-color{
     display: flex;

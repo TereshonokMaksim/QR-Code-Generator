@@ -23,7 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include("home_app.urls")),
     path("qrcode/", include("qrcode_app.urls")),
-    path("contacts/", include("contacts_app.urls"))
+    path("contacts/", include("contacts_app.urls")),
+    path("user/", include("user_app.urls"))
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

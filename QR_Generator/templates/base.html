@@ -5,34 +5,41 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="{% static 'css/fonts.css' %}">
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
         <link rel="stylesheet" href="{% static 'css/base_part_styles.css' %}">
-        <script src = "{% static 'js/script.js' %}"></script>
+        <!-- <script src = "{% static 'js/script.js' %}"></script> -->
         {% block links %}{% endblock %}
     </head>
     <body>
         
         <header>
-            <div class = "main-links not-logined-blocks">
-                <a href="{% url 'home' %}" class = "header-link" id = 'home'>Home</a>
-                <a href="{% url 'generator_qr' %}" class = "header-link" id = 'generator'>QR-Code Generator</a>
-                <a href="{% url 'contacts' %}" class = "header-link" id = 'contacts'>Contacts</a>
-            </div>
-            <div class = "login-links not-logined-blocks">
-                <a href="{% url 'login' %}" class = "header-link" id = 'login'>Login</a>
-                <a href="{% url 'registration' %}" class = "header-link header-button" id = 'register'>Register</a>
-            </div>
-            <div class = "main-links logined-blocks">
-                <a href="{% url 'home' %}" class = "header-link" id = 'home'>Home</a>
-                <a href="{% url 'generator_qr' %}" class = "header-link" id = 'generator'>QR-Code Generator</a>
-                <a href="{% url 'my_qrcodes' %}" class = "header-link" id = 'my-codes'>My QR-Codes</a>
-                <a href="{% url 'contacts' %}" class = "header-link" id = 'contacts'>Contacts </a>
-            </div>
-            <div class = "login-links logined-blocks">
-                <span class = "username">Welcome, user!</span>
-                <a href="{% url 'logout' %}" class = "header-link header-button">Logout</a>
-            </div>
+            {% if request.user.is_authenticated %}
+                <div class = "main-links logined-blocks">
+                    <a href="{% url 'home' %}" class = "header-link" id = 'home'>Home</a>
+                    <a href="{% url 'generator_qr' %}" class = "header-link" id = 'generator'>QR-Code Generator</a>
+                    <a href="{% url 'my_qrcodes' %}" class = "header-link" id = 'my-codes'>My QR-Codes</a>
+                    <a href="{% url 'contacts' %}" class = "header-link" id = 'contacts'>Contacts </a>
+                </div>
+                <div class = "login-links logined-blocks">
+                    <span class = "username">Welcome, {{ request.user.username }}!</span>
+                    <a href="{% url 'logout' %}" class = "header-link header-button">Logout</a>
+                </div>
+            {% else %}
+                <div class = "main-links not-logined-blocks">
+                    <a href="{% url 'home' %}" class = "header-link" id = 'home'>Home</a>
+                    <a href="{% url 'generator_qr' %}" class = "header-link" id = 'generator'>QR-Code Generator</a>
+                    <a href="{% url 'contacts' %}" class = "header-link" id = 'contacts'>Contacts</a>
+                </div>
+                <div class = "login-links not-logined-blocks">
+                    <a href="{% url 'login' %}" class = "header-link" id = 'login'>Login</a>
+                    <a href="{% url 'registration' %}" class = "header-link" id = 'register'>Register</a>
+                </div>
+            {% endif %}
         </header>
+        {% block bg %}
+
+        {% endblock %}
         <main>
             {% block content %}{% endblock %}
         </main>

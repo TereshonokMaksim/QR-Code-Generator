@@ -13,9 +13,9 @@ document.querySelector('.input-file').onchange = function () {
     colorInput.click();
   });
 
-let selectOpened = false
+let selectOpened = true
 document.querySelector("select").addEventListener("click", () => {
-    if (selectOpened) {
+    if (!selectOpened) {
       selectOpened = true
       document.querySelector("select").style = "border-radius: 8px 8px 8px 8px;"
     }
@@ -23,4 +23,5 @@ document.querySelector("select").addEventListener("click", () => {
       selectOpened = false
       document.querySelector("select").style = "border-radius: 8px 8px 0px 0px;"
     }
+    console.log(selectOpened)
 })

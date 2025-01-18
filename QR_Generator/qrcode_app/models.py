@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.db import models
 
 # Create your models here.
@@ -9,3 +10,5 @@ class QRCode(models.Model):
     form = models.CharField(max_length = 255)
     link = models.CharField(max_length = 255)
     path_qrcode = models.ImageField(upload_to = "media/", default = "1")
+    when_created = models.DateTimeField(default = datetime.now())
+    

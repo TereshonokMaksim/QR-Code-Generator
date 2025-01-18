@@ -12,8 +12,10 @@
 
 {% block content %}
     <img src="{% static 'generator_qr/img/background_gen_qr.png' %}" alt="" class = "background">
-    <p class = "header-title">Create your own QR-Code!</p>       
-    <img src = "{% static 'generator_qr/img/qr-fon.png' %}" alt="" class = "qr-size">
+    <p class = "header-title">Create your own QR-Code!</p>  
+    <div class = "bord-qrcode">
+        <img src = "{% static 'generator_qr/img/qr-fon.png' %}" alt="" class = "qr-size">
+    </div>
     <form action="" class = "settings-qrcode">
         {% csrf_token %}
         <div class = "input">
