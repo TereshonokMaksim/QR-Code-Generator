@@ -27,6 +27,11 @@ main{
     height: 700px;
 }
 
+.ready-qrcode{
+    border-radius: 50px;
+    border: 3px solid black;
+}
+
 .settings-qrcode{
     display: flex;
     justify-content: center;
@@ -178,4 +183,26 @@ option{
 
 .bord-qrcode{
     width: 902.91px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.download-button{
+    width: fit-content;
+}
+
+.input-inactive{
+    background-color: #083a46;
+    color: gray
+}
+.input-inactive:hover{
+    background-color: #083a46;
+    color: gray
+}
+.input-inactive:active{
+    background-color: #083a46;
+    color: gray
 }

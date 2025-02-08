@@ -26,10 +26,16 @@
             <label for = "password" class = "reg-form-name">Create password</label>
             <input type = "password" placeholder = "Your password" name = "password" required class = "reg-input">
         </div>
+        <div class = "input-block">
+            <label for = "password" class = "reg-form-name">Confirm password</label>
+            <input type = "password" placeholder = "Repeat your password" name = "password_confirm" required class = "reg-input">
+        </div>
         {% if message == "email" %}
             <p class = "reg-warning-text">This E-mail is already used, please, choose another E-mail.</p>
         {% elif message == "name" %}
             <p class = "reg-warning-text">This username is already used, please, choose another username.</p>
+        {% elif message == "password" %}
+            <p class = "reg-warning-text">Your password doesn't match confirmation password.</p>
         {% else %}
             <p class = "reg-goto-text">
                 Already have an account? 

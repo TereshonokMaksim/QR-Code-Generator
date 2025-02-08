@@ -37,10 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'user_app',
     'home_app',
     'qrcode_app',
-    'contacts_app',
-    'user_app'
+    'contacts_app'
 ]
 
 MIDDLEWARE = [

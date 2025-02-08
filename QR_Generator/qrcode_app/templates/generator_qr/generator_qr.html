@@ -14,30 +14,39 @@
     <img src="{% static 'generator_qr/img/background_gen_qr.png' %}" alt="" class = "background">
     <p class = "header-title">Create your own QR-Code!</p>  
     <div class = "bord-qrcode">
-        <img src = "{% static 'generator_qr/img/qr-fon.png' %}" alt="" class = "qr-size">
+        {% if qrcode != False %}
+            <img src = "{{ qrcode.path_qrcode.url }}" alt="" class = "qr-size ready-qrcode">
+            <button class = "download-button">
+                <a href="{{ qrcode.path_qrcode.url }}" download="{{ qrcode.name }}.png" style = "text-decoration: none; color: white;">
+                    Download
+                </a>
+            </button>
+        {% else %}
+            <img src = "{% static 'generator_qr/img/qr-fon.png' %}" alt="" class = "qr-size">
+        {% endif %}
     </div>
-    <form action="" class = "settings-qrcode">
+    <form method="post" class = "settings-qrcode">
         {% csrf_token %}
         <div class = "input">
             <p class = "p-style">Name:</p>
-            <input type="text" placeholder = "Your QR-Code name..." class = "input-size">
+            <input type="text" placeholder = "Your QR-Code name..." class = "input-size" name = "name" required>
         </div>
 
         <div class = "input">
             <p class = "p-style">Size:</p>
-            <input type="number" placeholder = "Your QR-Code size..." class = "input-size" min = "1" max = "40">
+            <input type="number" placeholder = "Your QR-Code size..." class = "input-size" min = "1" max = "40" name = "size" value = "10">
         </div>
 
         <div class = "input">
             <p class = "p-style-color">Color:</p>
             <div class="custom-color-picker" id="color-preview"></div>
-            <input type="color"  class = "input-color" hidden>
+            <input type="color"  class = "input-color" hidden name = "color" value = "#000000">
         </div>
 
         <div class = "input input-file1">
             <button class = "button-choose" onclick = "document.querySelector('.input-file').click()" type = "button">Choose file</button>
             <p class = "p-style" id = "text-file">File is not selected</p>
-            <input type="file" accept="image" class = "input-file">
+            <input type="file" accept="image" class = "input-file" name = "bg_image">
         </div>
 
         <div class = "input">
@@ -51,9 +60,13 @@
 
         <div class = "input">
             <p class = "p-style">Link:</p>
-            <input type="text" placeholder = "Your QR-Code link..." class = "input-size">
+            <input type="text" placeholder = "Your QR-Code link..." class = "input-size" name = "link" required>
         </div>
-
-        <button class = "input">Generate</button>
+        
+        {% if allowed %}
+            <button class = "input">Generate</button>
+        {% else %}
+            <button class = "input input-inactive" disabled>Generate</button>
+        {% endif %}
     </form>
 {% endblock %}
