@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-    Contacts
+    QR Code generator
 {% endblock %}
 
 {% block links %}
@@ -25,7 +25,7 @@
             <img src = "{% static 'generator_qr/img/qr-fon.png' %}" alt="" class = "qr-size">
         {% endif %}
     </div>
-    <form method="post" class = "settings-qrcode">
+    <form method="post" class = "settings-qrcode" enctype="multipart/form-data">
         {% csrf_token %}
         <div class = "input">
             <p class = "p-style">Name:</p>
@@ -37,16 +37,24 @@
             <input type="number" placeholder = "Your QR-Code size..." class = "input-size" min = "1" max = "40" name = "size" value = "10">
         </div>
 
-        <div class = "input">
-            <p class = "p-style-color">Color:</p>
-            <div class="custom-color-picker" id="color-preview"></div>
-            <input type="color"  class = "input-color" hidden name = "color" value = "#000000">
+        <div class = "color-inputs">
+            <div class = "input">
+                <p class = "p-style-color">Front Color:</p>
+                <div class="custom-color-picker" id="colorPreview1"></div>
+                <input type="color" class = "input-color" id = "colorInput1" hidden name = "front-color" value = "#000000">
+            </div>
+            <div class = "input">
+                <p class = "p-style-color">BG Color:</p>
+                <div class="custom-color-picker" id="colorPreview2"></div>
+                <input type="color" class = "input-color" id = "colorInput2" hidden name = "back-color" value = "#ffffff">
+            </div>
         </div>
 
         <div class = "input input-file1">
+            <p class = "input-file-header">Choose logo</p>
             <button class = "button-choose" onclick = "document.querySelector('.input-file').click()" type = "button">Choose file</button>
-            <p class = "p-style" id = "text-file">File is not selected</p>
-            <input type="file" accept="image" class = "input-file" name = "bg_image">
+            <p class = "p-style" id = "text-file" >File is not selected</p>
+            <input type="file" accept="image" class = "input-file" name = "logo_image">
         </div>
 
         <div class = "input">

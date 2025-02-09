@@ -15,12 +15,20 @@
 {% endblock %}
 
 {% block content %}
-     
+        <input type="hidden" hidden value = "{{ names_sorted_ids|join:',' }}/{{ date_sorted_ids|join:',' }}" class="sorting-ids">
         <h1 class="myqrcodes-title">Your QR Codes</h1>
+        <div class="sorting-qrcodes">
+            <select class="sorting" id="sorting" def = "No sorting">
+                <option class="option" value="DATE_first" id="data-newest">Sort by date (newest first)</option>
+                <option class="option" value="DATE_oldest"id="data-oldest">Sort by date (oldest first)</option>
+                <option class="option" value="ALPHABET_A-Z" id="alphabet-ascending">Sort alphabetically (A-Z)</option>
+                <option class="option" value="ALPHABET_Z-A" id="alphabet-descending">Sort alphabetically (Z-A)</option>
+            </select>
+        </div>
         <div class="myqrcodes-cards">
             {% for qrcode in all_qrcodes %}
                 <div class="myqrcode-card" id="card-{{ qrcode.id }}">
-                    <input type="hidden" value="{{ qrcode.name }};{{ qrcode.size }};#{{ qrcode.color }};{{ qrcode.form }};{{ qrcode.link }};{{ qrcode.path_qrcode.url }};{{ qrcode.when_created.date     }}" class="qrcode-data">
+                    <input type="hidden" value="{{ qrcode.name }};{{ qrcode.size }};#{{ qrcode.color_front }};{{ qrcode.form }};{{ qrcode.link }};{{ qrcode.path_qrcode.url }};{{ qrcode.when_created.date }};#{{ qrcode.color_back }}" class="qrcode-data">
                     <img src="{{ qrcode.path_qrcode.url }}" alt="" class="qrcode">
                     <div class="qrcode-info">
                         {{ qrcode.name }}
@@ -38,7 +46,8 @@
                     <p class="qrcode-name"></p>
                     <p class="qrcode-date"></p>
                     <p class="qrcode-size"></p>
-                    <div class="qrcode-color">Color:<div class="color"></div></div>
+                    <div class="qrcode-color">Front color:<div class="front-color color"></div></div>
+                    <div class="qrcode-color">Back color:<div class="back-color color"></div></div>
                     <p class="qrcode-form"></p>
                     <p class="qrcode-link"></p>
                     <button class="qrcode-download-button" id="download-button"><a href="" download class="download-link">Download</a></button>
@@ -51,3 +60,4 @@
     </div>
 
 {% endblock %}
+

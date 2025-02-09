@@ -1,4 +1,8 @@
 from django.db import models
+
+# Create your models here.
+
+from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
 from datetime import datetime
@@ -9,6 +13,7 @@ class Subscription(models.Model):
     description = models.TextField()
     price = models.FloatField()
     max_qrcodes = models.IntegerField()
+    can_customize = models.BooleanField(default = True)
 
     def __str__(self):
         return self.title
