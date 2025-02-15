@@ -24,6 +24,8 @@
         </div>
         {% if message == "incorrect" %}
             <p class = "login-warning-text">Your username or password is incorrect, be sure that you <a href="{% url 'registration' %}" class = "login-warning-link">have an account</a></p>
+        {% elif message == 'verified' %}
+            <p class = 'login-warning-text'>You have not confirmed your email address. Please check your email to confirm the address.</p>
         {% else %}
             <p class = "login-goto-text">Dont have an account? <a href = "{% url 'registration' %}" class = "login-goto-link">Registration</a></p>
         {% endif %}

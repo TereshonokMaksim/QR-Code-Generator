@@ -43,9 +43,8 @@ main{
 .myqrcode-card{
     display: flex;
     width: 270px;
-    height: 374px;
+    height: fit-content;
     flex-direction: column;
-    padding-top: 10px;
     
     background-color: white;
     border: 1px solid rgb(0,59,72);
@@ -57,16 +56,15 @@ main{
     overflow: hidden;
 }
 .qrcode{
-    width: 250px;
-    height: 250px;
-    padding-bottom: 10px;
+    width: 100%;
+    height: 100%;
 }
 
 .qrcode-info{
     display: flex;
-    padding-top: 10px;
+    padding: 10px 0px;
     width: 270px;
-    height: 54px;
+    height: fit-content;
     justify-content: center;
     color: white;
     font-size: 28px;
@@ -94,10 +92,11 @@ main{
 }
 
 .modal-window{
+    position: relative;
     display: flex;
-    width: fit-content;
+    /* width: fit-content; */
     max-width: 1000px;
-    height: 420px;
+    height: fit-content;
     /* max-height: 600px; */
     flex-direction: row;
     gap:38.92px;
@@ -108,13 +107,16 @@ main{
     position: fixed;
     align-items: center;
     padding: 20px 0px 20px 20px;
+    padding-right: 50px;
     overflow: hidden;
 }
 .qrcode-modal{
     width: 306px;
     height: 306px;
-    padding-top: 31.13px;
-    padding-bottom:31.13px ;
+    /* padding-top: 31.13px;
+    padding-bottom:31.13px ; */
+    border-radius: 20px;
+    border: 3px solid black;
 }
 .modal-info{
     display: flex;
@@ -124,11 +126,13 @@ main{
     font-weight: 700;
     font-family: "Inter",sans-serif;
     padding-top: 10px;
+    padding-right: 40px;
 }
 .end-decoration{
-    /* display: flex; */
-    height: 440px;
-    min-height: 460px;
+    position: absolute;
+    display: flex;
+    height: 100%;
+    /* min-height: 460px; */
     gap: 7.78px;
     padding: 10px;
     padding-top: 20px;
@@ -141,6 +145,8 @@ main{
     border-top-right-radius: 27.5px;
     border-bottom-right-radius: 27.5px;
     border-left: 3.28px solid rgb(0,80,98);
+    top: 0px;
+    right: 0px;
 }
 .cross-image{
     width: 60px;
@@ -184,4 +190,24 @@ main{
 a[download]{
     text-decoration: none;
     color: white;
+}
+.option{
+    font-size: 24px;
+    font-weight: 600;
+}
+select{
+    width: 550px;
+    height: 50px;
+    font-size: 24px;
+    font-weight: 600;
+    border: solid 5px rgb(17,133,159);
+    border-radius: 20px;
+}
+
+.qrcode-link{
+    word-break: break-word;
+}
+
+.fb-color2{
+    width: 164.52px;
 }

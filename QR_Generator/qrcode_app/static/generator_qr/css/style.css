@@ -27,16 +27,22 @@ main{
     height: 700px;
 }
 
+.ready-qrcode{
+    border-radius: 50px;
+    border: 3px solid black;
+}
+
 .settings-qrcode{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 34px;
+    gap: 50px;
     background-color: #50A8BB;
     padding: 20px 40px;
     border: 6px solid #003B48;
     border-radius: 20px;
+    height: 757px;
 }
 
 .input{
@@ -70,9 +76,11 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 37.56px;
+    font-size: 36.56px;
     font-weight: bold;
-    width: 131px;
+    width: fit-content;
+    margin-right: 12px;
+    margin-left: 10px;
     font-family: "Inter", sans-serif;
     border: none;
 }
@@ -87,7 +95,7 @@ main{
 
 .custom-color-picker{
     display: flex;
-    width: 401px;
+    width: 200px;
     height: 39px;
     background-color: black;
     margin: 0;
@@ -178,4 +186,51 @@ option{
 
 .bord-qrcode{
     width: 902.91px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.download-button{
+    width: fit-content;
+}
+
+.input-inactive{
+    background-color: #083a46;
+    color: gray;
+}
+.input-inactive:hover{
+    background-color: #083a46;
+    color: gray;
+}
+.input-inactive:active{
+    background-color: #083a46;
+    color: gray;
+}
+
+.button-choose{
+    padding: 5px;
+    font-size: 36px;
+    margin: 0px 10px 0px 10px;
+}
+
+.input-file-header{
+    font-size: 38px;
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+}
+
+#text-file{
+    font-size: 32px;
+}
+
+.color-inputs{
+    display: flex;
+    flex-direction: row;
+}
+
+#colorPreview2{
+    background-color: white;
 }
