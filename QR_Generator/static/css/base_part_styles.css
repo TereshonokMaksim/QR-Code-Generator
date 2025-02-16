@@ -9,11 +9,11 @@ button{
     transition: 0.1s;
     border-width: 0px;
 }
-button:hover{
+button:enabled:hover{
     transition: 0.1s;
     background-color: #50A8BB;
 }
-button:active{
+button:enabled:active{
     transition: 0.1s;
     background-color: #005062;
 }

@@ -7,12 +7,12 @@ const standartSubBody = document.querySelector('#subscription-card-standart')
 const proSubBody = document.querySelector('#subscription-card-pro')
 const freeSubBody = document.querySelector('#subscription-card-free')
 const freeSubButton = document.querySelector('#first-card-price')
-const hiddenSub = document.querySelector('.hidden-subscription').value
+const hiddenSub = document.querySelector('.hidden-subscription').value.split("/")[0]
+const hiddenChangeSub = document.querySelector('.hidden-subscription').value.split("/")[1]
 
 for (let buttonNumber = 0; buttonNumber < openModalButton.length; buttonNumber++){
     openModalButton[buttonNumber].addEventListener('click', () => {
         blurElement.style.display = 'flex';
-        console.log('text');
     });
 }
 cross.addEventListener('click', () => {
@@ -25,8 +25,6 @@ if (hiddenSub == 'Free'){
     proSubBody.classList.add("avalaible-subscription")
     freeSubButton.disabled = true
     freeSubButton.textContent = 'You are subscribed'
-
-
 }else if (hiddenSub == 'Standart'){
     freeSubBody.classList.add("avalaible-subscription")
     standartSubBody.classList.add("current-subscription")
@@ -39,4 +37,8 @@ if (hiddenSub == 'Free'){
     proSubBody.classList.add("current-subscription")
     proSub.disabled = true
     proSub.textContent = 'You are subscribed'
+}
+
+if (hiddenChangeSub == "True"){
+    blurElement.style.display = 'flex';
 }

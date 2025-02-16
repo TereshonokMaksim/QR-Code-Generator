@@ -14,6 +14,7 @@ for (let buttonNumber = 0; buttonNumber < openModalButton.length; buttonNumber++
         let qrcodeValues = document.getElementById(`card-${ openModalButton[buttonNumber].id}`).querySelector('.qrcode-data').value.split(";");
         document.querySelector('.qrcode-modal').src = qrcodeValues[5];
         downloadLink.href = qrcodeValues[5];
+        downloadLink.download = `${qrcodeValues[0]}.png`;
         console.log(qrcodeValues)
         if (qrcodeValues[4].length > 400){
             qrcodeValues[4] = qrcodeValues[4].substr(0, 400) + "..."

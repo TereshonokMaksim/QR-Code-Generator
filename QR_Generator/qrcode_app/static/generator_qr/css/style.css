@@ -37,11 +37,12 @@ main{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 34px;
+    gap: 50px;
     background-color: #50A8BB;
     padding: 20px 40px;
     border: 6px solid #003B48;
     border-radius: 20px;
+    height: 757px;
 }
 
 .input{

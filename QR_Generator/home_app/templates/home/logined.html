@@ -16,7 +16,7 @@
     <h1 class = "header-title">Welcome, User, to our QR code generator!<br>
         We offer you some subscriptions to make your QR codes better!</h1>
     <div class="all-cards">
-        <input type="hidden" value = '{{ subscription }}' class = 'hidden-subscription'>
+        <input type="hidden" value = '{{ subscription }}/{{ changed }}' class = 'hidden-subscription'>
         <div class="subscription-card" id="subscription-card-free">
             <div class="subscription-type">
                 <p class="sub-type">Free</p>
@@ -60,13 +60,13 @@
     </div>
     <div class="blur">
         <div class="modal-window">
-                <div class="modal-info">
-                    <p class="modal-text">You have sucesfully changed your subscribe! <br> See more information on your e-mail adress</p>
-                    <img src="{% static 'home_app/img/gmail-image.png' %}" alt="gmail-image" class="gmail-image">
-                </div>
-                <div class="end-decoration">
-                    <img src="{% static 'img/cross.png' %}" alt="" class="cross-image">
-                </div>
+            <div class="modal-info">
+                <p class="modal-text">You have sucesfully changed your subscription! <br> See more information on your e-mail account.</p>
+                <img src="{% static 'home_app/img/gmail-image.png' %}" alt="gmail-image" class="gmail-image">
+            </div>
+            <div class="end-decoration">
+                <img src="{% static 'img/cross.png' %}" alt="" class="cross-image">
+            </div>
         </div>
     </div>
 {% endblock %}
