@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Confirm Email Page
+{% endblock %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'confirm_email_app/css/confirm.css' %}">
+{% endblock %}
+
+{% block content %}
+    <img src="{% static 'confirm_email_app/img/background.png' %}" alt="background" class="background" >
+    <div class="congratulations-div">
+        <h1 class="congratulations-title">You have confirmed your email.<br>You can log into your account on the login page</h1>
+        <a class="congratulations-link" href="{% url 'login' %}">Go to login page</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,15 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if not_active %}
+        <h1>This code is no longer active.</h1>
+    {% else %}
+            <h1>{{ not_link }}</h1>
+    {% endif %}
+    
+</body>
+</html>

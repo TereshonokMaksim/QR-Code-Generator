@@ -86,7 +86,7 @@ main{
     transition: 0.2s;
 }
 
-.avalaible-subscription form button:hover{
+.avalaible-subscription form button:enabled:hover{
     transition: 0.2s;
     filter: brightness(120%);
     cursor: pointer;
@@ -162,6 +162,9 @@ main{
 .cross-image{
     width: 60px;
     height: 60px;
+}
+.cross-image:hover{
+    cursor: pointer;
 }
 .blur{
     display: none;

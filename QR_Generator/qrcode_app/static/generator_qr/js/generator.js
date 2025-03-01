@@ -2,16 +2,17 @@ document.querySelector('.input-file').onchange = function () {
     document.querySelector('#text-file').innerHTML = this.value.split('\\').at(-1);
   }
 
-  const colorInput = document.querySelector(".input-color");
-  const colorPreview = document.getElementById("color-preview");
+  const colorInputs = document.querySelectorAll(".input-color");
+  const colorPreview = document.querySelectorAll(".custom-color-picker");
 
-  colorInput.addEventListener("input", () => {
-    colorPreview.style.backgroundColor = colorInput.value;
-  });
+  colorInputs.forEach((colorInput) => {colorInput.addEventListener("input", () => {
+  document.querySelector(`#colorPreview${colorInput.id[colorInput.id.length - 1]}`).style.backgroundColor = colorInput.value;
+  })});
 
-  colorPreview.addEventListener("click", () => {
-    colorInput.click();
-  });
+  colorPreview.forEach((colorPreviewDiv) => {colorPreviewDiv.addEventListener("click", () => {
+    console.log(`colorInput${colorPreviewDiv.id[colorPreviewDiv.id.length - 1]}`)
+    document.querySelector(`#colorInput${colorPreviewDiv.id[colorPreviewDiv.id.length - 1]}`).click();
+  })});
 
 let selectOpened = true
 document.querySelector("select").addEventListener("click", () => {
