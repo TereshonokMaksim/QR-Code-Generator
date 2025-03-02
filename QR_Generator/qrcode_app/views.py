@@ -1,16 +1,19 @@
-from django.shortcuts import render
-import qrcode.exceptions
+from django.shortcuts import render, redirect
 from .models import QRCode
-from user_app.models import Account
+from user_app.models import Account, Subscription
 import qrcode
 from qrcode.image.styles.moduledrawers.pil import CircleModuleDrawer, SquareModuleDrawer, GappedSquareModuleDrawer, RoundedModuleDrawer
 from qrcode.image.styles.colormasks import SolidFillColorMask
 from qrcode.image.styledpil import StyledPilImage
+from django.http import HttpRequest, JsonResponse
+from django.core.handlers.wsgi import WSGIRequest
 import os
-from datetime import datetime
+from datetime import datetime, timedelta
 # import random
 from PIL import Image
 import math
+from django.utils import timezone
+from home_app.utils import auto_check_sub
 
 
 def add_center_image(image, qrcode: StyledPilImage, size: int = 10, background_color = (255, 255, 255)):
@@ -35,7 +38,8 @@ def hex_to_rgb(hex: str):
         rgb_color.append(int(hex[part * 2], 16) * 16 + int(hex[part * 2 + 1], 16))
     return tuple(rgb_color)
 
-def render_generator_qr(request):
+def render_generator_qr(request: HttpRequest):
+    auto_check_sub(user = request.user)
     if request.user.is_authenticated:
         account = Account.objects.filter(user = request.user)[0]
         all_qrcodes = QRCode.objects.filter(acc_id = account)
@@ -47,17 +51,10 @@ def render_generator_qr(request):
                 front_color = request.POST.get("front-color")
                 size = request.POST.get("size")
                 qr_code_maker = qrcode.QRCode(error_correction = qrcode.ERROR_CORRECT_H, box_size = size, border=2)
-                qr_code_maker.add_data(request.POST.get("link"))
                 form_style = {"round": CircleModuleDrawer, "square": SquareModuleDrawer, "rounded": RoundedModuleDrawer}[request.POST.get("form")]
                 rgb_back_color = hex_to_rgb(back_color)
                 if rgb_back_color == (0, 0, 0):
                     rgb_back_color = (0, 0, 1)
-                img = qr_code_maker.make_image(image_factory = StyledPilImage, 
-                               module_drawer = form_style(), 
-                               color_mask = SolidFillColorMask(back_color=rgb_back_color, front_color=hex_to_rgb(front_color)))
-                center_image = request.FILES.get("logo_image")
-                if center_image:
-                    img = add_center_image(image = center_image, qrcode = img, size = size, background_color = back_color)
                 qrcode_model = QRCode(name = request.POST.get("name"), 
                                     size = request.POST.get("size"), 
                                     color_front = front_color[1:], 
@@ -67,6 +64,13 @@ def render_generator_qr(request):
                                     path_qrcode = "on the next line",
                                     acc_id = account)   
                 qrcode_model.save()
+                qr_code_maker.add_data(request.build_absolute_uri(qrcode_model.get_absolute_url()))
+                img = qr_code_maker.make_image(image_factory = StyledPilImage, 
+                               module_drawer = form_style(), 
+                               color_mask = SolidFillColorMask(back_color=rgb_back_color, front_color=hex_to_rgb(front_color)))
+                center_image = request.FILES.get("logo_image")
+                if center_image:
+                    img = add_center_image(image = center_image, qrcode = img, size = size, background_color = back_color)
                 path = os.path.abspath(__file__ + f"/../../media/images/qrcodes/{account.user.username}/")
                 if not os.path.exists(path):
                     os.makedirs(path)
@@ -80,7 +84,8 @@ def render_generator_qr(request):
         allowed = False
     return render(request = request, template_name = "generator_qr/generator_qr.html", context = {"qrcode": False, "allowed": allowed})
 
-def view_my_qrcodes(request):
+def view_my_qrcodes(request: HttpRequest):
+    auto_check_sub(user = request.user)
     all_qrcodes = QRCode.objects.filter(acc_id = Account.objects.filter(user = request.user)[0])
     names_list = {}
     date_list = []
@@ -100,3 +105,22 @@ def view_my_qrcodes(request):
     
     return render(request, "my_qrcodes.html", context = {"all_qrcodes": all_qrcodes, "names_sorted_ids": names_sorted_ids, "date_sorted_ids": date_sorted_ids})
     
+def render_active_page(request: HttpRequest, id: int):
+    auto_check_sub(user = request.user)
+    try:
+        verifiable_qrcode = QRCode.objects.get(id = id)
+        if verifiable_qrcode.active == True:
+            if request.method == "GET":
+                if verifiable_qrcode.link[:4] == "http":
+                    return redirect(verifiable_qrcode.link)
+                else:
+                    return render(request, "active.html", context = {"not_link": verifiable_qrcode.link})
+        else:
+            return render(request, "active.html",context={"not_active": 1})
+    except:
+        return render(request, "active.html",context={"not_active": 1})
+            
+def process_delete_request(request: WSGIRequest, id: int):
+    deleted_qr_code = QRCode.objects.get(id = id)
+    deleted_qr_code.delete()
+    return JsonResponse({"success": True})

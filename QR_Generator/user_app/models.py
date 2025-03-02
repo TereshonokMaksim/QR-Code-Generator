@@ -22,7 +22,7 @@ class Account(models.Model):
     user = models.OneToOneField(User, on_delete= models.CASCADE)
     verified = models.IntegerField()
     subscription = models.ForeignKey(Subscription, on_delete = models.SET_NULL, null = True)
-    sub_expire = models.DateTimeField(default = datetime.now())
+    sub_expire = models.DateTimeField(default = datetime.now)
 
     def get_absolute_url(self):
         return reverse('confirm_email', kwargs = {'verification_code': self.verified})

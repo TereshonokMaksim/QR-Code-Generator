@@ -4,14 +4,17 @@ from django.contrib.auth import authenticate, login, logout
 from django.core.mail import send_mail
 from QR_Generator.settings import *
 import random
+from django.http import HttpRequest
+from qrcode_app.models import QRCode
 from .models import Account, Subscription
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
+from home_app.utils import auto_check_sub
 # Create your views here.
 
 
-def render_register_page(request):
+def render_register_page(request: HttpRequest):
+    auto_check_sub(user = request.user)
     if request.method == "POST":
-       
         site_url = request.build_absolute_uri().split("/")[0:-2]
         site_url = '/'.join(site_url)
         print(site_url)
@@ -35,8 +38,6 @@ def render_register_page(request):
         verification_code = ''.join(verification_list)
         account =  Account.objects.create(user = user, verified = verification_code, subscription = Subscription.objects.get(title = "Free"), sub_expire = datetime.now())
         all_url = ''.join([site_url, account.get_absolute_url()])
-        print(all_url)
-       
         subject = 'Registration'
         message = f'Good day!\n Your Google account was registered on the site {all_url} .\nTo continue logging into your account, follow this link: http://127.0.0.1:8000/login \n P.S. If you were not the one logging in, just ignore this message.\n\nAll the best!'
         from_email =  EMAIL_HOST_USER # Отправитель
@@ -47,8 +48,8 @@ def render_register_page(request):
     
     return render(request = request, template_name = "registration/reg.html")
 
-def render_login_page(request):
-   
+def render_login_page(request: HttpRequest):
+    auto_check_sub(user = request.user)
     if request.method == "POST":
         
         name = request.POST.get("username")
@@ -78,4 +79,3 @@ def render_confirm_email_page(request, verification_code):
             account.save()
             print(verification_code)
     return render(request = request, template_name = "confirm_email/confirm.html")
-

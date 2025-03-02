@@ -76,7 +76,7 @@ main{
 }
 .qrcode-download{
     display: flex;
-    width: 270px;
+    width: 210px;
     height: 60px;
     justify-content: center;
     align-items: center;
@@ -88,7 +88,42 @@ main{
     padding: 10px;
     border-top-left-radius:0px ;
     border-top-right-radius:0px ;
-   
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+
+
+.qrcode-button{
+    display: flex;
+}
+
+.trash-bin{
+    width: 47px;
+    height: 57px;
+}
+
+.trash-bin-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:60px;
+    height: 60px;
+    background-color: red;
+    border-top-left-radius:0px ;
+    border-top-right-radius:0px ;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    padding: 0;
+}
+
+.trash-bin-button:enabled:hover{
+    background-color: rgb(249, 117, 117);
+    transition: 0.1s;
+}
+
+.trash-bin-button:enabled:active{
+    background-color: rgb(174, 15, 15);
 }
 
 .modal-window{
@@ -175,6 +210,36 @@ main{
     margin: auto;
 }
 
+.qrcode-modal-button-del{
+    display: flex;
+    justify-content: center;
+}
+
+.qrcode-delete-button{
+    display: flex;
+    background-color: red;
+    width: 150px;
+    justify-content: center;
+}
+
+.qrcode-delete-button:enabled:hover{
+    background-color: rgb(249, 117, 117);
+    transition: 0.1s;
+}
+
+.qrcode-delete-button:enabled:active{
+    background-color: rgb(174, 15, 15);
+}
+
+
+.download-button{
+    display: flex;
+    width: 312px;
+    flex-direction: column;
+    gap: 25px;
+    margin-top: 50px;
+}
+
 .color{
     width: 150px;
     height: 38px;
@@ -210,4 +275,8 @@ select{
 
 .fb-color2{
     width: 170px;
+}
+
+.activated-False{
+    filter: brightness(70%);
 }
