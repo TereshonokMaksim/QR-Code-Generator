@@ -5,9 +5,8 @@ from django.core.mail import send_mail
 from QR_Generator.settings import *
 import random
 from django.http import HttpRequest
-from qrcode_app.models import QRCode
 from .models import Account, Subscription
-from datetime import datetime, timedelta, timezone
+from datetime import datetime
 from home_app.utils import auto_check_sub
 # Create your views here.
 

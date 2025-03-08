@@ -59,16 +59,17 @@ main{
 }
 .all-cards{
     display: flex;
-    width: 1542px;
+    width: 100vw;
     height: fit-content;
     gap: 40px;
     flex-direction: row;
     justify-content: center;
-    padding-bottom: 40px;
+    padding-bottom: 10px;
+    flex-wrap: wrap;
 }
 .subscription-card{
     display: flex;
-    width: 488px;
+    width: 450px;
     height: 478.3px;
     flex-direction: column;
     gap: 20px;
@@ -82,7 +83,6 @@ main{
    text-align: center;
     width: 488px;
     height: 111px;
-   
     background-color: rgb(17, 121, 144);
     border-bottom: 4.22px solid rgb(0,80, 98);
 }
@@ -97,6 +97,18 @@ main{
     height: 100%;
     font-family: "Inter", sans-serif;
 }
+.scroll-box{
+    height: calc(100vh - 80px);
+    width: 100vw;                   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    padding-top: 35px;
+    gap: 50px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
 .subscription-description{
     width: 368px;
     height: 117px;
@@ -110,16 +122,20 @@ main{
     font-family: "Inter", sans-serif;
 }
 .subscription-price{
-    width: 488px;
+    width: 450px;
     height: 153px;
+    min-height: 153px;
+    max-height: 153px;
     text-align: center;
     transition: 0.2s;
     background-color: rgb(17, 121, 144);
     border-top: 4.22px solid rgb(0, 80 ,98);
     color: rgb(255,255,255);
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
 }
 .sub-price{
-    padding-top: 40.56px;
+    /* padding-top: 40.56px; */
     font-size: 47.1px;
     font-weight: 400;
     font-family: "Inter", sans-serif;
@@ -154,4 +170,18 @@ a{
     filter: brightness(120%);
     transition: 0.2s;
     cursor: pointer;
+}
+.bright-option{
+    background-color: rgb(17,133,159);
+    color: white;
+}
+
+.brighter-option{
+    background-color: rgb(28,178,210); 
+    color: white;
+}
+
+.brightest-option{
+    background-color: rgb(50,214,239); 
+    color: white;
 }

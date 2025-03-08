@@ -1,6 +1,4 @@
-from django.shortcuts import render, redirect
-from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login, logout
+from django.shortcuts import render
 from django.http import JsonResponse
 from django.core.mail import send_mail
 from django.http import HttpRequest
@@ -25,11 +23,12 @@ def change_activation(max_qrcodes: int, user_acc: Account):
             qrcode.save()
 
 def render_home_page(request: HttpRequest) -> None:
+    all_subs = Subscription.objects.all()
     auto_check_sub(user = request.user)
     if request.method == "POST":
         subscription = request.POST.get("subscription")
-        print(request.POST)
-        subscription_object = Subscription.objects.get(title = subscription)
+        print(subscription)
+        subscription_object = Subscription.objects.get(id = subscription)
         user = Account.objects.get(user = request.user)
         user.subscription = subscription_object
         change_activation(max_qrcodes = subscription_object.max_qrcodes, user_acc = user)
@@ -46,10 +45,9 @@ def render_home_page(request: HttpRequest) -> None:
     # Прописать тут условие залогинен/разлогинен
     if request.user.is_authenticated:
         user = Account.objects.get(user = request.user)
-        print(user.sub_expire)
-        return render(request = request, template_name = "home/logined.html", context = {"subscription": Account.objects.get(user = request.user).subscription.title, "changed": changed_sub})
+        return render(request = request, template_name = "home/logined.html", context = {"subscription": Account.objects.get(user = request.user).subscription, "changed": changed_sub, "subs": all_subs})
     else:
-        return render(request = request, template_name = "home/not_logined.html")
+        return render(request = request, template_name = "home/not_logined.html", context = {"subs": all_subs})
 
 
 def is_logined(request = None):

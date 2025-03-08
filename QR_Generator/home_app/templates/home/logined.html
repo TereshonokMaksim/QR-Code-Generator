@@ -12,60 +12,60 @@
 {% endblock %}
 
 {% block content %}
-    <img src="{% static 'home_app/img/background.png' %}" alt="" class="background" >
-    <h1 class = "header-title">Welcome, User, to our QR code generator!<br>
-        We offer you some subscriptions to make your QR codes better!</h1>
-    <div class="all-cards">
-        <input type="hidden" value = '{{ subscription }}/{{ changed }}' class = 'hidden-subscription'>
-        <div class="subscription-card" id="subscription-card-free">
-            <div class="subscription-type">
-                <p class="sub-type">Free</p>
-            </div>
-            <p class="subscription-description">• 1 QR-Code for 6 <br> months</p>
-            <p class="subscription-cost">Cost: Free</p>
-            <form method="post">
-                {% csrf_token %}
-                <button class="subscription-price modal-class" id="first-card-price" value="Free" name="subscription">
-                    <p class="sub-price-button">Subscribe</p>
-                </button>
-            </form>
+    <div class = "scroll-box">
+        <img src="{% static 'home_app/img/background.png' %}" alt="" class="background" >
+        <h1 class = "header-title">Welcome, User, to our QR code generator!<br>
+            We offer you some subscriptions to make your QR codes better!</h1>
+        <div class="all-cards">
+            <input type="hidden" value = '{{ subscription.id }}/{{ changed }}' class = 'hidden-subscription'>
+            {% for sub in subs %}
+                {% if sub.visible %}
+                    <div class = "subscription-card" id = "subscription-card-{{ sub.id }}">
+                        <div class = "subscription-type">
+                            <p class = "sub-type">{{ sub.title }}</p>
+                        </div>
+                        <p class = "subscription-description">{{ sub.description }}</p>
+                        <p class = "subscription-cost">Cost: {% if sub.price > 0 %}{{ sub.price }}€/month{% else %}Free{% endif %}</p>
+                        <button class = "subscription-price modal-class" id = "{{ sub.id }}" name = "subscription" value = "{{ sub.id }}">
+                            <p class = "sub-type">Subscribe</p>
+                        </button>
+                    </div>
+                {% endif %}
+            {% endfor %}
         </div>
-        <div class="subscription-card" id="subscription-card-standart">
-            <div class="subscription-type" id="second-card-type">
-                <p class="sub-type">Standart</p>
-            </div>
-            <p class="subscription-description">• Up to 10 custom <br> QR-Codes in your <br> cloud library</p>
-            <p class="subscription-cost">Cost: 2$ per month</p>
-            <form method="post">
-                {% csrf_token %}
-                <button class="subscription-price modal-class" id="second-card-price" value="Standart" name="subscription">
-                    <p class="sub-price-button">Subscribe</p>
-                </button>
-            </form>
-        </div>
-        <div class="subscription-card" id="subscription-card-pro">
-            <div class="subscription-type" id="third-card-type">
-                <p class="sub-type">Pro</p>
-            </div>
-            <p class="subscription-description">• Up to 100 custom <br>QR-Codes in your <br>cloud library
-            </p>
-            <p class="subscription-cost">Cost: 10$ per month</p>
-            <form method="post">
-                {% csrf_token %}
-                <button class="subscription-price modal-class" id="third-card-price" value = 'Pro' name="subscription">
-                    <p class="sub-price-button">Subscribe</p>
-                </button>
-            </form>
-        </div>
-    </div>
-    <div class="blur">
-        <div class="modal-window">
-            <div class="modal-info">
-                <p class="modal-text">You have sucesfully changed your subscription! <br> See more information on your e-mail account.</p>
-                <img src="{% static 'home_app/img/gmail-image.png' %}" alt="gmail-image" class="gmail-image">
-            </div>
-            <div class="end-decoration">
-                <img src="{% static 'img/cross.png' %}" alt="" class="cross-image">
+        <div class="blur hidden">
+            <div class="modal-window">
+                <div class="modal-info hidden">
+                    <p class="modal-text">You have sucesfully changed your subscription! <br> See more information on your e-mail account.</p>
+                    <img src="{% static 'home_app/img/gmail-image.png' %}" alt="gmail-image" class="gmail-image">
+                </div>
+                <form method="post" class="subscription-form hidden">
+                    {% csrf_token %}
+                    <div class = "input-block">
+                        <label for="card-name" class = "subscription-form-name">Name on Card</label>
+                        <input type="text" name = "card-name" id = "card-name" required class = "subscription-input" autocomplete="cc-name" placeholder = "XXXXXXXXXX XXXXXXX">
+                    </div>
+                    <div class = "input-block">
+                        <label for="card-number" class = "subscription-form-name">Card Number</label>
+                        <input type = "text" name = "card-number" id = "card-number" required class = "subscription-input" pattern="[0-9\s]{13,19}" inputmode="numeric" autocomplete="cc-number" placeholder="XXXX XXXX XXXX XXXX">
+                    </div>
+                    <div class = "mini-inputs-sub">
+                        <div class = "input-block mini-input-block">
+                            <label for = "expiration" class = "subscription-form-name">Expiration (mm/yy)</label>
+                            <input type = "text" placeholder = "XX/XX" name = "expiration" id = "expiration" required class = "subscription-input mini-sub-input" pattern = "\d{2}/\d{2}" autocomplete="cc-exp">
+                        </div>
+                        <div class = "input-block mini-input-block">
+                            <label for = "security-code" class = "subscription-form-name">Security Code</label>
+                            <input type = "password" placeholder = "XXX" name = "security-code" id = "security-code" required class = "subscription-input mini-sub-input" pattern="[0-9]{3,4}" autocomplete="cc-csc">
+                        </div>
+                    </div>
+                    <form method="post">
+                        <button type = "submit" class = "submit-sub-button" name="subscription">Subscribe</button>
+                    </form>
+                </form>
+                <div class="end-decoration">
+                    <img src="{% static 'img/cross.png' %}" alt="" class="cross-image">
+                </div>
             </div>
         </div>
     </div>

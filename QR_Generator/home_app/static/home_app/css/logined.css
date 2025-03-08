@@ -12,19 +12,30 @@
 }
 
 .header-title{
+    margin-top: 30px;
     text-align: center;
     font-weight: 700;
     font-size: 64px;
     font-family: "Instrument Sans", serif;
     color: rgb(204, 247, 255);
 }
-main{                   
+
+.scroll-box{
+    height: calc(100vh - 80px);
+    width: 100vw;                   
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 150px;
+    justify-content: start;
+    padding-top: 35px;
+    padding-bottom: 10px;
+    gap: 70px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
+
+/* main{
+} */
 
 .all-cards{
     display: flex;
@@ -33,11 +44,13 @@ main{
     gap: 40px;
     flex-direction: row;
     justify-content: center;   
+    flex-wrap: wrap;
 }
 
 .subscription-card{
     display: flex;
-    width: 488px;
+    /* min-width: 380px; */
+    width: 450px;
     height: 478.3px;
     flex-direction: column;
     gap: 20px;
@@ -48,7 +61,7 @@ main{
     overflow: hidden;
 }
 .subscription-type{
-    width: 488px;
+    width: 100%;
     height: 111px;
     background-color: rgb(17, 121, 144);
     border-bottom: 4.22px solid rgb(0,80, 98);
@@ -63,9 +76,10 @@ main{
     font-size: 50px;
     font-weight: 700;
     font-family: "Inter", sans-serif;
+    pointer-events: none;
 }
 .subscription-description{
-    width: 368px;
+    width: 75.4%;
     height: 117px;
     font-size: 32px;
     font-weight: 700;
@@ -77,13 +91,15 @@ main{
     font-family: "Inter", sans-serif;
 }
 .subscription-price{
-    width: 488px;
+    width: 100%;
     height: 153px;
     text-align: center;  
     background-color: rgb(17, 121, 144);
     border-top: 4.22px solid rgb(0, 80 ,98);
     color: rgb(255,255,255);
     transition: 0.2s;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
 }
 
 .avalaible-subscription form button:enabled:hover{
@@ -98,20 +114,18 @@ main{
     font-weight: 400;
     font-family: "Inter", sans-serif;
 }
-#third-card-type{
-    background-color: rgb(31,184,219);
-    color: white;
-}
-#third-card-price{
-    background-color: rgb(31,184,219); 
-    color: white;   
-}
-#second-card-type{
+.bright-option{
     background-color: rgb(17,133,159);
     color: white;
 }
-#second-card-price{
-    background-color: rgb(17,133,159);
+
+.brighter-option{
+    background-color: rgb(28,178,210); 
+    color: white;
+}
+
+.brightest-option{
+    background-color: rgb(50,214,239); 
     color: white;
 }
 
@@ -124,9 +138,13 @@ main{
     cursor: default;
 }
 
+.modal-text{
+    font-size: 42px;
+}
+
 .modal-window{
     display: flex;
-    height: 370px;
+    height: fit-content;
     flex-direction: row;
     gap:38.92px;
     padding-left: 31.13px;
@@ -138,6 +156,8 @@ main{
 .modal-info{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 15.57px;
     font-size: 31.13px;
     font-weight: 700;
@@ -146,7 +166,7 @@ main{
 }
 .end-decoration{
     display: flex;
-    max-height: 370px;
+    max-height: 100%;
     gap: 7.78px;
     padding: 10px;
     background-color: rgb(17,133,159);
@@ -167,12 +187,12 @@ main{
     cursor: pointer;
 }
 .blur{
-    display: none;
+    display: flex;
     top: 80px;
     left: 0px;
     position: fixed;
-    width: 100%;
-    height: calc(100% - 80px);
+    width: 100vw;
+    height: calc(100vh - 80px);
     background-color: rgba(0, 0, 0, 0.4);
     justify-content: center;
     align-items: center;
@@ -181,9 +201,9 @@ main{
 }
 .gmail-image{
     position: relative;
-    width: 250px;
-    height: 250px;
-    left: 25%;
+    width: 150px;
+    height: 150px;
+    margin-bottom: 30px;
 }
 button{
     padding: 0px;
@@ -192,4 +212,56 @@ button{
     font-size: 47.1px;
     font-weight: 400;
     font-family: "Inter", sans-serif;
+}
+
+.sub-button-form{
+    width: 100%;
+}
+.sub-price-button{
+    font-size: 47.1px;
+    font-weight: 400;
+    font-family: "Inter", sans-serif;
+}
+.input-block{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 6px;
+}
+.mini-inputs-sub{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    gap: 10%;
+}
+.mini-input-block{
+    width: 45%;
+}
+.subscription-form{
+    margin: 30px 100px 30px 30px;
+}
+.subscription-form-input{
+    width: 100%;
+}
+.subscription-form-name{
+    font-family: "Inter", sans-serif;
+    color: black;
+    font-weight: 700;
+    font-size: 36px;
+}
+
+.submit-sub-button{
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.hidden{
+    display: none;
+}
+
+.mini-sub-input{
+    width: 360px;
 }

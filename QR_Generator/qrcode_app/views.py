@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import QRCode
-from user_app.models import Account, Subscription
+from user_app.models import Account
 import qrcode
 from qrcode.image.styles.moduledrawers.pil import CircleModuleDrawer, SquareModuleDrawer, GappedSquareModuleDrawer, RoundedModuleDrawer
 from qrcode.image.styles.colormasks import SolidFillColorMask
@@ -8,11 +8,10 @@ from qrcode.image.styledpil import StyledPilImage
 from django.http import HttpRequest, JsonResponse
 from django.core.handlers.wsgi import WSGIRequest
 import os
-from datetime import datetime, timedelta
+from datetime import datetime
 # import random
 from PIL import Image
 import math
-from django.utils import timezone
 from home_app.utils import auto_check_sub
 
 

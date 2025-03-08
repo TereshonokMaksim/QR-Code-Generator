@@ -9,11 +9,11 @@ from datetime import datetime
 
 # Create your models here.
 class Subscription(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=100, unique = True)
     description = models.TextField()
     price = models.FloatField()
     max_qrcodes = models.IntegerField()
-    can_customize = models.BooleanField(default = True)
+    visible = models.BooleanField(default = True)
 
     def __str__(self):
         return self.title
