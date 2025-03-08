@@ -96,6 +96,9 @@ _Нижче, будуть приведені фреймворки які бул�
 
 <details>
 <summary>Натисніть, щоб побачити схематичну структуру проекту / Click to see the schematic structure of the project</summary>
+
+#### Нижче приведена структура проекту / Below is the project structure
+
 ```mermaid
 %%{ init : { "theme" : "default", "flowchart" : { "curve" : "linear" } }}%%
 
