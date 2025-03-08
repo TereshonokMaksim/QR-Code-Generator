@@ -29,7 +29,8 @@ _Нижче, будуть приведені фреймворки які бул�
 
 <details>
     <summary>Натисніть, щоб побачити інструкцію по запуску та обслуговуванню проекту / Click to see instructions for launching and maintaining the project</summary>
-    #### Рекомендується виконати всі інструкції, якщо ви хочете мати працюючий проект / It is recommended to follow all instructions if you want to have a working project.
+    УВАГА: Проект призначений для роботи на Операційній Системі Windows, тому для користувачів на других Операційних Системах можуть бути проблеми з налаштуванням шляхів / WARNING: The project is designed to work on the Windows Operating System, so users on other Operating Systems may have problems setting up paths_ 
+    Рекомендується виконати всі інструкції, якщо ви хочете мати працюючий проект / It is recommended to follow all instructions if you want to have a working project.
     <details>
         <summary>Натисніть, щоб побачити інструкцію по запуску проекту / Click to see instructions for starting the project</summary>
         1. >Переконайтесь, що ви маєте версію Python >3.11 з встановленим PIP (Package Installer for Python) / Make sure you have Python version >3.11 with PIP (Package Installer for Python) installed
@@ -91,7 +92,6 @@ _Нижче, будуть приведені фреймворки які бул�
             3. У полі вибору біля тексту Action виберіть "Delete selected {назва моделі}s" та натисність "Go" / In the selection box next to the Action text, select "Delete selected {model name}s" and click "Go"
         i. Рекомендовано створювати QR коди тільки на сторінці створення QR кода, намагайтеся не користуватися сторінкою адміністрації для цього / It is recommended to create QR codes only on the QR code creation page, try not to use the administration page for this
     </details>
-    _Проект призначений для роботи на Операційній Системі Windows, тому для користувачів на других Операційних Системах можуть бути проблеми з налаштуванням шляхів / The project is designed to work on the Windows Operating System, so users on other Operating Systems may have problems setting up paths._ 
 </details>
 
 <details>
@@ -244,6 +244,7 @@ manage.py - Файл, який користується для роботи ва
 README.md - Файл, котрий ви зараз читаєте. Створенний для пояснювання проекту для оточуючих. / The file you are currently reading. Created to explain the project to others. 
 </details>
 
+---
 
 #### Посилання на проект у Figma, де створювався дизайн проекту / Link to the project in Figma where the project design was created: https://www.figma.com/design/QNoAIRnomVT5osDP8dU3UM/Home-Practice?node-id=134-177&t=FuI9B4tIHoOlSSk8-1
 ### Цей проект був корисним для мене і моєї команди для розвитку у праці з Django фреймворком та створення хоч і простого, але працюючого дизайну за допомогою Figma. / This project was useful for me and my team to develop their skills in working with the Django framework and creating a simple but working design using Figma.
