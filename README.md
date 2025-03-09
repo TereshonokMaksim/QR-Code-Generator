@@ -18,6 +18,9 @@
 #### Це, мова програмування на якій працює практично все на бекенду / This is the programming language that runs almost everything on the backend.
 _Нижче, будуть приведені фреймворки які були використані для створення бекенду / Below, the frameworks that were used to create the backend will be listed._
 1. Django - Фреймворк, який, в нашому проекті, використовувався для роботи з цілим проектом на стороні серверу (бекенду) та для більш зручної праці з базами даних. Також, його шаблонізатор відповідає за динамічний контент веб-сторінок. / Django - A framework that, in our project, was used to work with the entire project on the server side (backend) and for more convenient work with databases. Also, its templating engine is responsible for dynamic content of web pages.
+2. Pillow (PIL) - бібліотека, котра довзоляє працювати с зображеннями. За допомогою неї корегується QR код під налаштування користувача. / A library that allows you to work with images. It is used to adjust the QR code to the user's preferences.
+3. qrcode - бібліотека, яке генерує QR код з тексту, який вводить користувач. / a library that generates a QR code from text entered by the user.
+4. timedata - бібліотека, яке довзоляє швидко та зручно працювати з часом, необхідно для роботи з підписками. / A library that allows you to quickly and conveniently work with time is necessary for working with subscriptions.
 ### HTML 5
 #### Мова-конструктор, на якому побудована структура всіх веб-сторінок проекту. Його робота підкріплювалася зі сторони бекенду за допомогою шаблонізатору Django. / A construction language that built the structure of all the project's web pages. Its work was supported on the backend side using the Django templating engine.
 ### CSS
