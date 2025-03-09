@@ -2,7 +2,7 @@ from datetime import datetime
 from django.db import models
 from user_app.models import Account
 from django.urls import reverse
-
+from django.forms import forms
 
 class QRCode(models.Model):
     name = models.CharField(max_length = 128)
