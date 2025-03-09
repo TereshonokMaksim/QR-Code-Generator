@@ -7,9 +7,9 @@
 ---
 
 ## Склад команди:
-0. [Терешонок Максим]() - Тімлід команди / Team leader
-1. [Агеєв Данило]() - Активний писач коду, активно працював з дизайном веб додатку / Active code writer, actively worked with web application design
-2. [Олефіренко Глеб]() - Писач коду / Code writer
+0. [Терешонок Максим](https://github.com/TereshonokMaksim/QR-Code-Generator) - Тімлід команди / Team leader
+1. [Агеєв Данило](https://github.com/Ageev-Danilo/QR-Code-Generator) - Активний писач коду, активно працював з дизайном веб додатку / Active code writer, actively worked with web application design
+2. [Олефіренко Глеб](https://github.com/GlebOlefirenko/QR_Generator) - Писач коду / Code writer
 
 ---
 
