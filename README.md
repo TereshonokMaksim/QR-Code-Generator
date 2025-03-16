@@ -120,7 +120,7 @@ i. Рекомендовано створювати QR коди тільки на
 
 ```mermaid
 %%{ init : { "theme" : "default", "flowchart" : { "curve" : "linear" } }}%%
-graph LR
+graph TB
     A(QR_Generator_main) --> qr_generator
     A(QR_Generator_main) --> home_app
     A(QR_Generator_main) --> qrcode_app
@@ -133,26 +133,26 @@ graph LR
     A(QR_Generator_main) --> C([manage.py])
 
     subgraph qr_generator
-        LA(QR_Generator dummy):::hidden --> DB([asgi.py])
-        LA(QR_Generator dummy):::hidden --> DC([settings.py])
-        LA(QR_Generator dummy):::hidden --> DD([urls.py])
-        LA(QR_Generator dummy):::hidden --> DE([wsgi.py])
+        LA(QR_Generator) --> DB([asgi.py])
+        LA(QR_Generator) --> DC([settings.py])
+        LA(QR_Generator) --> DD([urls.py])
+        LA(QR_Generator) --> DE([wsgi.py])
     end
 
     L --> qr_generator
 
     subgraph home_app
 
-        KA(home_app dummy):::hidden --> KB(migrations)
-        KA(home_app dummy):::hidden --> KC(Static Base)
-        KA(home_app dummy):::hidden --> KD(templates/home)
-        KA(home_app dummy):::hidden --> KE([apps.py])
-        KA(home_app dummy):::hidden --> KF([urls.py])
-        KA(home_app dummy):::hidden --> KG([utils.py])
-        KA(home_app dummy):::hidden --> KH([views.py])
+        KA(home_app) --> KB(migrations)
+        KA(home_app) --> KC(Static Base)
+        KA(home_app) --> KD(templates/home)
+        KA(home_app) --> KE([apps.py])
+        KA(home_app) --> KF([urls.py])
+        KA(home_app) --> KG([utils.py])
+        KA(home_app) --> KH([views.py])
 
-        KDA(home_app_htmls dummy):::hidden --> KDB([not_logined.html])
-        KDA(home_app_htmls dummy):::hidden --> KDC([logined.html])
+        KDA(home_app templates) --> KDB([not_logined.html])
+        KDA(home_app templates) --> KDC([logined.html])
 
     end
 
@@ -162,17 +162,17 @@ graph LR
 
     subgraph qrcode_app
 
-        JA(qrcode_app dummy):::hidden --> JB(migrations)
-        JA(qrcode_app dummy):::hidden --> JC(Static Base)
-        JA(qrcode_app dummy):::hidden --> JD(templates)
-        JA(qrcode_app dummy):::hidden --> JE([admin.py])
-        JA(qrcode_app dummy):::hidden --> JF([models.py])
-        JA(qrcode_app dummy):::hidden --> JG([urls.py])
-        JA(qrcode_app dummy):::hidden --> JH([views.py])
+        JA(qrcode_app) --> JB(migrations)
+        JA(qrcode_app) --> JC(Static Base)
+        JA(qrcode_app) --> JD(templates)
+        JA(qrcode_app) --> JE([admin.py])
+        JA(qrcode_app) --> JF([models.py])
+        JA(qrcode_app) --> JG([urls.py])
+        JA(qrcode_app) --> JH([views.py])
 
-        JDA(qrcode_app_htmls dummy):::hidden --> JDB([active.html])
-        JDA(qrcode_app_htmls dummy):::hidden --> JDC([my_qrcodes.html])
-        JDA(qrcode_app_htmls dummy):::hidden --> JDD([generator_qr.html])
+        JDA(qrcode_app_templates) --> JDB([active.html])
+        JDA(qrcode_app_templates) --> JDC([my_qrcodes.html])
+        JDA(qrcode_app_templates) --> JDD([generator_qr.html])
 
     end
 
@@ -181,17 +181,17 @@ graph LR
 
     subgraph user_app
 
-        IA(user_app dummy):::hidden --> IB(migrations)
-        IA(user_app dummy):::hidden --> IC(Static Base)
-        IA(user_app dummy):::hidden --> ID(templates)
-        IA(user_app dummy):::hidden --> IE([admin.py])
-        IA(user_app dummy):::hidden --> IF([models.py])
-        IA(user_app dummy):::hidden --> IG([urls.py])
-        IA(user_app dummy):::hidden --> IH([views.py])
+        IA(user_app) --> IB(migrations)
+        IA(user_app) --> IC(Static Base)
+        IA(user_app) --> ID(templates)
+        IA(user_app) --> IE([admin.py])
+        IA(user_app) --> IF([models.py])
+        IA(user_app) --> IG([urls.py])
+        IA(user_app) --> IH([views.py])
 
-        IDA(user_app_htmls dummy):::hidden --> IDB([confirm.html])
-        IDA(user_app_htmls dummy):::hidden --> IDC([log.html])
-        IDA(user_app_htmls dummy):::hidden --> IDD([reg.html])
+        IDA(user_app_templates) --> IDB([confirm.html])
+        IDA(user_app_templates) --> IDC([log.html])
+        IDA(user_app_templates) --> IDD([reg.html])
 
     end
 
