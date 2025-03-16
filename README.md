@@ -121,91 +121,110 @@ i. Рекомендовано створювати QR коди тільки на
 ```mermaid
 %%{ init : { "theme" : "default", "flowchart" : { "curve" : "linear" } }}%%
 
-flowchart LR
-
-    A(QR_Generator_main) --> L(QR_Generator)
-    A(QR_Generator_main) --> K(home_app)
-    A(QR_Generator_main) --> J(qrcode_app)
-    A(QR_Generator_main) --> I(user_app)
-    A(QR_Generator_main) --> H(contacts_app)
-    A(QR_Generator_main) --> G(media)
-    A(QR_Generator_main) --> F(templates)
-    A(QR_Generator_main) --> E(Static Base)
+    A(QR_Generator_main) --> qr_generator
+    A(QR_Generator_main) --> home_app
+    A(QR_Generator_main) --> qrcode_app
+    A(QR_Generator_main) --> user_app
+    A(QR_Generator_main) --> contancts_app
+    A(QR_Generator_main) --> media
+    A(QR_Generator_main) --> templates
+    A(QR_Generator_main) --> static_base
     A(QR_Generator_main) --> D([db.sqlite3])
     A(QR_Generator_main) --> C([manage.py])
 
+    subgraph qr_generator
+        LA(QR_Generator dummy):::hidden --> DB([asgi.py])
+        LA(QR_Generator dummy):::hidden --> DC([settings.py])
+        LA(QR_Generator dummy):::hidden --> DD([urls.py])
+        LA(QR_Generator dummy):::hidden --> DE([wsgi.py])
+    end
 
-    LA(QR_Generator dummy):::hidden --> DB([asgi.py])
-    LA(QR_Generator dummy):::hidden --> DC([settings.py])
-    LA(QR_Generator dummy):::hidden --> DD([urls.py])
-    LA(QR_Generator dummy):::hidden --> DE([wsgi.py])
+    L --> qr_generator
 
-    L --> LA
+    subgraph home_app
 
-    KA(home_app dummy):::hidden --> KB(migrations)
-    KA(home_app dummy):::hidden --> KC(Static Base)
-    KA(home_app dummy):::hidden --> KD(templates/home)
-    KA(home_app dummy):::hidden --> KE([apps.py])
-    KA(home_app dummy):::hidden --> KF([urls.py])
-    KA(home_app dummy):::hidden --> KG([utils.py])
-    KA(home_app dummy):::hidden --> KH([views.py])
+        KA(home_app dummy):::hidden --> KB(migrations)
+        KA(home_app dummy):::hidden --> KC(Static Base)
+        KA(home_app dummy):::hidden --> KD(templates/home)
+        KA(home_app dummy):::hidden --> KE([apps.py])
+        KA(home_app dummy):::hidden --> KF([urls.py])
+        KA(home_app dummy):::hidden --> KG([utils.py])
+        KA(home_app dummy):::hidden --> KH([views.py])
 
-    KDA(home_app_htmls dummy):::hidden --> KDB([not_logined.html])
-    KDA(home_app_htmls dummy):::hidden --> KDC([logined.html])
+        KDA(home_app_htmls dummy):::hidden --> KDB([not_logined.html])
+        KDA(home_app_htmls dummy):::hidden --> KDC([logined.html])
+
+    end
 
     KD --> KDA
     K --> KA
 
 
-    JA(qrcode_app dummy):::hidden --> JB(migrations)
-    JA(qrcode_app dummy):::hidden --> JC(Static Base)
-    JA(qrcode_app dummy):::hidden --> JD(templates)
-    JA(qrcode_app dummy):::hidden --> JE([admin.py])
-    JA(qrcode_app dummy):::hidden --> JF([models.py])
-    JA(qrcode_app dummy):::hidden --> JG([urls.py])
-    JA(qrcode_app dummy):::hidden --> JH([views.py])
+    subgraph qrcode_app
 
-    JDA(qrcode_app_htmls dummy):::hidden --> JDB([active.html])
-    JDA(qrcode_app_htmls dummy):::hidden --> JDC([my_qrcodes.html])
-    JDA(qrcode_app_htmls dummy):::hidden --> JDD([generator_qr.html])
+        JA(qrcode_app dummy):::hidden --> JB(migrations)
+        JA(qrcode_app dummy):::hidden --> JC(Static Base)
+        JA(qrcode_app dummy):::hidden --> JD(templates)
+        JA(qrcode_app dummy):::hidden --> JE([admin.py])
+        JA(qrcode_app dummy):::hidden --> JF([models.py])
+        JA(qrcode_app dummy):::hidden --> JG([urls.py])
+        JA(qrcode_app dummy):::hidden --> JH([views.py])
+
+        JDA(qrcode_app_htmls dummy):::hidden --> JDB([active.html])
+        JDA(qrcode_app_htmls dummy):::hidden --> JDC([my_qrcodes.html])
+        JDA(qrcode_app_htmls dummy):::hidden --> JDD([generator_qr.html])
+
+    end
 
     JD --> JDA
     J --> JA
 
+    subgraph user_app
 
-    IA(user_app dummy):::hidden --> IB(migrations)
-    IA(user_app dummy):::hidden --> IC(Static Base)
-    IA(user_app dummy):::hidden --> ID(templates)
-    IA(user_app dummy):::hidden --> IE([admin.py])
-    IA(user_app dummy):::hidden --> IF([models.py])
-    IA(user_app dummy):::hidden --> IG([urls.py])
-    IA(user_app dummy):::hidden --> IH([views.py])
+        IA(user_app dummy):::hidden --> IB(migrations)
+        IA(user_app dummy):::hidden --> IC(Static Base)
+        IA(user_app dummy):::hidden --> ID(templates)
+        IA(user_app dummy):::hidden --> IE([admin.py])
+        IA(user_app dummy):::hidden --> IF([models.py])
+        IA(user_app dummy):::hidden --> IG([urls.py])
+        IA(user_app dummy):::hidden --> IH([views.py])
 
-    IDA(user_app_htmls dummy):::hidden --> IDB([confirm.html])
-    IDA(user_app_htmls dummy):::hidden --> IDC([log.html])
-    IDA(user_app_htmls dummy):::hidden --> IDD([reg.html])
+        IDA(user_app_htmls dummy):::hidden --> IDB([confirm.html])
+        IDA(user_app_htmls dummy):::hidden --> IDC([log.html])
+        IDA(user_app_htmls dummy):::hidden --> IDD([reg.html])
+
+    end
 
     ID --> IDA
     I --> IA
 
+    subgraph media
 
-    G(media) --> GA(images)
-    GA(images) --> GB(qrcodes)
-    GB(qrcodes) --> GC(User personal QR Codes)
+        G(media) --> GA(images)
+        GA(images) --> GB(qrcodes)
+        GB(qrcodes) --> GC(User personal QR Codes)
 
+    end
 
-    F(templates) --> FA([base.html])
+    subgraph templates
 
+        F(templates) --> FA([base.html])
 
-    EY(Static Base) --> EYA(css)
-    EY(Static Base) --> EYB(js)
-    EY(Static Base) --> EYC(images)
-    EY(Static Base) --> EYD(fonts)
+    end
 
-    EYA(css) --> EYAA([style.css])
-    EYB(js) --> EYBA([script.js])
-    EYC(images) --> EYCA(any images for web page)
-    EYD(fonts) --> EYDA(Only in global static app, fonts)
+    subgraph static_base
+
+        EY(Static Base) --> EYA(css)
+        EY(Static Base) --> EYB(js)
+        EY(Static Base) --> EYC(images)
+        EY(Static Base) --> EYD(fonts)
+
+        EYA(css) --> EYAA([style.css])
+        EYB(js) --> EYBA([script.js])
+        EYC(images) --> EYCA(any images for web page)
+        EYD(fonts) --> EYDA(Only in global static app, fonts)
+    
+    end
 
     classDef hidden display: none
 
