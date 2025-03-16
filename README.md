@@ -120,7 +120,7 @@ i. Рекомендовано створювати QR коди тільки на
 
 ```mermaid
 %%{ init : { "theme" : "default", "flowchart" : { "curve" : "linear" } }}%%
-
+graph LR
     A(QR_Generator_main) --> qr_generator
     A(QR_Generator_main) --> home_app
     A(QR_Generator_main) --> qrcode_app
