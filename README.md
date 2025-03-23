@@ -9,8 +9,9 @@
 - [Використані технології / Tehnologies used](#використані-технології--technologies-used)
 - [Інструкції / Instructions](#інструкції--instructions)
 - [Структура / Structure](#структура--structure)
+- [Структура додатків / Application structure](#структура-додатку--application-structure)
 - [Додатки / Applications](#додатки--applications)
-- [Як працює додаток / How this application works](#як-працює-додаток--how-this-application-works)
+- [Особливості роботи додатку / Features of the application](#особливості-роботи-додатків--features-of-the-applications)
 - [Посилання / Links](#посилання--links)
 - [Висновок / Conclusion](#висновок--conslusion)
 
@@ -24,8 +25,8 @@
 
 ## Склад команди / Team members:
 0. [Терешонок Максим](https://github.com/TereshonokMaksim/QR-Code-Generator) - Тімлід команди / Team leader
-1. [Агеєв Данило](https://github.com/Ageev-Danilo/QR-Code-Generator) - Активний писач коду, активно працював з дизайном веб додатку / Active code writer, actively worked with web application design
-2. [Олефіренко Глеб](https://github.com/GlebOlefirenko/QR_Generator) - Писач коду / Code writer
+1. [Агеєв Данило](https://github.com/Ageev-Danilo/QR-Code-Generator)
+2. [Олефіренко Глеб](https://github.com/GlebOlefirenko/QR_Generator)
 
 ---
 
@@ -36,13 +37,19 @@ _Нижче, будуть приведені фреймворки які бул�
 1. Django - Фреймворк, який, в нашому проекті, використовувався для роботи з цілим проектом на стороні серверу (бекенду) та для більш зручної праці з базами даних. Також, його шаблонізатор відповідає за динамічний контент веб-сторінок. / Django - A framework that, in our project, was used to work with the entire project on the server side (backend) and for more convenient work with databases. Also, its templating engine is responsible for dynamic content of web pages.
 2. Pillow (PIL) - бібліотека, котра довзоляє працювати с зображеннями. За допомогою неї корегується QR код під налаштування користувача. / A library that allows you to work with images. It is used to adjust the QR code to the user's preferences.
 3. qrcode - бібліотека, яке генерує QR код з тексту, який вводить користувач. / a library that generates a QR code from text entered by the user.
-4. timedata - бібліотека, яке довзоляє швидко та зручно працювати з часом, необхідно для роботи з підписками. / A library that allows you to quickly and conveniently work with time is necessary for working with subscriptions.
+4. datetime - бібліотека, яке довзоляє швидко та зручно працювати з часом, необхідно для роботи з підписками. / A library that allows you to quickly and conveniently work with time is necessary for working with subscriptions.
 ### HTML 5
 #### Мова-конструктор, на якому побудована структура всіх веб-сторінок проекту. Його робота підкріплювалася зі сторони бекенду за допомогою шаблонізатору Django. / A construction language that built the structure of all the project's web pages. Its work was supported on the backend side using the Django templating engine.
 ### CSS
 #### Мова для надання сторінкам стилів і деякого косметичного функціоналу / A language for giving pages styles and some cosmetic functionality
 ### JavaScript (JS)
 #### Мова для створення інтерактивності веб-сторінок, відповідає за відправку даних без оновлення сторінки (XML запити) / Language for creating interactivity on web pages, responsible for sending data without refreshing the page (XML queries)
+### Бази Даних / DataBases
+#### Вони використовувались для зручної зберігання великих об'ємів даних користувачів, підписок та QR кодів.
+### git
+#### Він використовувся для організації командної роботи учасників за допомогою гілок та відслідковування версій додатку.
+### Figma
+#### Вона використовувався для створення дизайну, створенню схеми бази даних та схематичному розподілу праці учасників.
 
 ---
 
@@ -51,7 +58,7 @@ _Нижче, будуть приведені фреймворки які бул�
 <details>
 
 <summary>Натисніть, щоб побачити інструкцію по запуску та обслуговуванню проекту / Click to see instructions for launching and maintaining the project</summary>
-УВАГА: Проект призначений для роботи на Операційній Системі Windows, тому для користувачів на других Операційних Системах можуть бути проблеми з налаштуванням шляхів / WARNING: The project is designed to work on the Windows Operating System, so users on other Operating Systems may have problems setting up paths_ 
+
 Рекомендується виконати всі інструкції, якщо ви хочете мати працюючий проект / It is recommended to follow all instructions if you want to have a working project.
 
 ---
@@ -61,7 +68,7 @@ _Нижче, будуть приведені фреймворки які бул�
 
 ### Як запустити проект ЛОКАЛЬНО / how to launch project LOCALLY
 
-1. >Переконайтесь, що ви маєте версію Python >3.11 з встановленим PIP (Package Installer for Python) / Make sure you have Python version >3.11 with PIP (Package Installer for Python) installed
+1. >Переконайтесь, що ви маєте версію Python >=3.11 з встановленим PIP (Package Installer for Python) / Make sure you have Python version >3.11 with PIP (Package Installer for Python) installed
 2. >Встановіть цей проект собі на комп'ютер. Для цього, наведіться на зелену кнопку "<> Code" та натисність на найнижчу відкриту кнопку "Download ZIP" / Install this project on your computer. To do this, hover over the green "<> Code" button and click on the lowest open button "Download ZIP"
 3. >Розархівуйте встановлену ZIP папку / Unzip the installed ZIP folder
 4. >Відкрийте командний рядок у себе на комп'ютері та перейдіть у папку с проектом. Для цього відкрийте командний рядок у цій самий папці, або перейдіть у неї користуючись командою cd / Open a command prompt on your computer and navigate to the project folder. To do this, open a command prompt in the same folder, or navigate to it using the cd command.
@@ -228,11 +235,11 @@ flowchart LR
 
 </details>
 
-## Додатки / Applications
+## Структура додатку / Application structure
 
 <details>
 
-<summary>Натисніть, щоб побачити пояснення до додатків цього веб додатку / Click to see the explanations of the applications of this web application</summary>
+<summary>Натисніть, щоб побачити пояснення до структури додатків цього веб додатку / Click to see the explanations of the applications structure of this web application</summary>
 
 *app - Папка у якій створен веб додаток і його базові складові (інші є у папці static та templates) / The folder in which the web application and its basic components are created (others are in the static and templates folder)
 
@@ -287,9 +294,38 @@ manage.py - Файл, який користується для роботи ва
 README.md - Файл, котрий ви зараз читаєте. Створенний для пояснювання проекту для оточуючих. / The file you are currently reading. Created to explain the project to others. 
 </details>
 
+## Додатки / Applications
+
+<details>
+
+<summary>Натисніть, щоб побачити пояснення до додатків цього веб додатку / Click to see the explanations of the applications of this web application</summary>
+<!-- TODO -->
+
+### Home app (у коді просто home_app / in the code just home_app)
+- Цей додаток відповідає за домашню сторінку, а саме за першу сторінку, що побачить користувач коли перейде на цей вебсайт / This application is responsible for the homepage, namely the first page that the user will see when they go to this website.
+- Також, саме на сторінці, за яку відповідає цей додаток, користувач може оформити підписку / Also, it is on the page for which this application is responsible that the user can subscribe.
+
+### Contacts app (у коді просто contacts_app / in the code it's just contacts_app)
+- Цей додаток відповідає всього за одну сторінку, а саме за сторінку контактів / This application is responsible for only one page, namely the contacts page.
+- Якщо ви хочете встановити свої контактні дані на сторінку, будь ласка, переглянте HTML шаблон у сторінці templates, та замініть потрібні посилання / If you want to set your contact details on the page, please review the HTML template in the templates page, and replace the necessary links.
+
+### User app (у коді просто user_app)
+- Цей додаток відповідає за всю роботу з системою користувачів, а також підписок / This application is responsible for all work with the user system, as well as subscriptions
+- У цьому додатку є 2 сторінки - сторінка реєстрації та авторизації / This application has 2 pages - registration and authorization page
+- Після реєстрації користувачу на пошту приходе повідомлення про підтвердження своєї пошти, тому одна пошта може бути тільки на один акаунт, так само як і логін / After registration, the user receives a confirmation message to their email, so one email can only be used for one account, as well as a login.
+- Цей додаток містить дві моделі бази даних - Subscription та Account / This application contains two database models - Subscription and Account
+
+### QRCode App (у коді просто qrcode_app / in the code just qrcode_app)
+- Цей додаток відповідає за всю роботу з QR кодами, а саме їх створювання та управління / This application is responsible for all work with QR codes, namely their creation and management.
+- При створенні QR коду, є можливість обрати колір, зображення та форму "квадратиків", докладніше у [Особливостях роботи додатків](#особливості-роботи-додатків--features-of-the-applications) / When creating a QR code, you can choose the color, image, and shape of the "squares", for more details see [Features of the applications](#особливості-роботи-додатків--features-of-the-applications)
+- Всі свої QR коди користувач може побачити на сторінці My QR Codes, де він може їх завантажити або видалити с серверу, звільнивши собі місце під інший QR код. Коли його QR коди деактивовані, він може про це дізнатися по пункту Active у детальному перегляді QR коду або просто по затемненню QR коду. / The user can see all his QR codes on the My QR Codes page, where he can download or delete them from the server, freeing up space for another QR code. When his QR codes are deactivated, he can find out about it by clicking the Active item in the detailed view of the QR code or simply by darkening the QR code.
+- Цей додаток містить одну модель бази даних - QRCode, яка має індивідуальний показ на сторінці адмінстрації, бо звичайний, котрий дає Django, не дуже зрозумілий / This application contains one database model - QRCode, which has an individual display on the administration page, because the regular one provided by Django is not very clear.
+
+</details>
+
 ---
 
-## Як працює додаток / How this application works
+## Особливості роботи додатків / Features of the applications
 
 <details>
 <summary>Натисніть, щоб побачити додаткове пояснення по тому, як працює цей додаток / Click to see a further explanation of how this app works</summary>
@@ -325,4 +361,32 @@ README.md - Файл, котрий ви зараз читаєте. Створе�
 
 ## Висновок / Conslusion
 
-### Цей проект був корисним для мене і моєї команди для розвитку у праці з Django фреймворком та створення хоч і простого, але працюючого дизайну за допомогою Figma. / This project was useful for me and my team to develop their skills in working with the Django framework and creating a simple but working design using Figma.
+### Цей додаток навчив нас просунутої роботі с багатьма аспектами роботи з широким фреймворком Django, а саме / This application taught us advanced work with many aspects of working with the broad Django framework, namely:
+- Роботи з media файлами - як вони працюють, як їх оброблювати та правильному їх використанню / Working with media files - how they work, how to process them and their correct use
+- Роботи статичних файлів (static) у Django, а саме їх підключення та різниця їх від других фреймворків, як, наприклад, Flask / How static files work in Django, namely their connection and their difference from other frameworks, such as Flask
+- Структурі проекту Django - створення додатків та їх файлова структура / Django project structure - creating applications and their file structure
+- Зручній та швидкій роботи з базою даних за допомогою Django / Convenient and fast database work with Django
+### Про базу даних, ми використовували її, а не нереляційну базу даних, як от JSON, бо / About the database, we used it, not a non-relational database like JSON, because:
+- Бази даних дозволяють швидкий та ефективний доступ к даним за потреби / Databases allow for quick and efficient access to data when needed
+- Працюють відмінно при великих масштабах даних / Works great with large data scales
+- Є набагато легшими для модерації, що дозволяє оперативно виправляти можливі помилки за потреби / They are much easier to moderate, allowing you to quickly correct possible errors if necessary.
+#### Відходячи недалеко від теми, ми також вивчили (та використали) нові типи зв'язків, а саме / Going a little off topic, we also learned (and used) new types of connections, namely:
+- Один до Одного - Використовували щоб поєднати користувача з системи з своєю моделлю профіля користувача, бо один користувач може мати тільки один профіль / One to One - Used to connect a user from the system to their user profile model, because one user can only have one profile
+- Один до Багатьох - Використовували щоб поєднати користувача з його QR кодами, бо один користувач може мати багато QR кодів / One to Many - Used to associate a user with their QR codes, as one user can have many QR codes
+
+### Також ми познайомились с новою для нас бібліотекою - qrcode / We also got acquainted with a new library for us - qrcode:
+- Ми навчилися створювати різноманітні QR коди різної складності / We learned how to create various QR codes of varying complexity.
+- Ми дізналися, як можна налаштовувати стилі QR кодів, як от їх колір, або фігуру / We learned how to customize QR code styles, such as their color or shape.
+- Знайшли використання бібліотеці pillow в створенні QR кодів / Found use for the pillow library in creating QR codes
+
+### Змогли значно покращити організацію команди за допомогою наступних інструментів / We were able to significantly improve team organization using the following tools:
+#### Git - інструмент для розробки коду / Git - a tool for code development:
+- Він дозволив відстежувати працю кожного учаснику команди за допомогою декількох кліків / It allowed tracking the work of each team member with just a few clicks.
+- Допоміг нам коли були загублені частини коду, бо дозволяє доступ до минулих версій коду / Helped us when parts of the code were lost, because it allows access to past versions of the code
+#### Figma - Інструмент для створення дизайну / Figma - Design creation tool:
+- Ми навчилися створювати дизайни та робити для них прототипи, що поліпшує розуміння, як воно повинно виглядати у коді / We learned how to create designs and prototype them, which improves our understanding of how it should look in code.
+- Краще зрозуміли як робити дизайн по макету з Figma / Better understand how to design from a mockup with Figma
+#### FigJam - Інструмент для планувань та схем роботи / FigJam - A tool for planning and workflows:
+- Познайомились з тим, що таке FigJam та використали для створень плану роботи / We got to know what FigJam is and used it to create a work plan.
+- Полегшили розуміння бази даних, створивши її візуальну схему у FigJam / Made the database easier to understand by creating a visual diagram of it in FigJam  
+<!-- TODO -->
